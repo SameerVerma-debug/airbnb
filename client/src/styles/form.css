@@ -1,0 +1,57 @@
+.form-container{
+  display: flex;
+  flex-direction: column;
+  height:100vh;
+  justify-content: center;
+  align-items: center;
+  gap:1rem;
+}
+
+.form-heading{
+  font-weight: bold;
+  font-size: xx-large;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  gap:0.8rem;
+  width: 40vw;
+  max-width: 500px;
+}
+
+input{
+  border: 1px solid lightgray;
+  padding:0.5rem;
+  border-radius: 1rem;
+  font-size:1rem;
+  outline: none;
+  width:100%;
+}
+
+.pass{
+  position: relative;
+}
+
+.toggle-pass{
+  position: absolute;
+  right:0;
+  background-color: rgba(255, 255, 255, 0);
+  height: 100%;
+}
+
+.redirect{
+  font-size: 1rem;
+  color: rgb(122, 122, 122);
+}
+
+.redirect > a{
+  color:black;
+  margin-left:0.3rem;
+}
+
+.response-message{
+  color: var(--primary-color);
+  text-align: center;
+  font-weight: bold;
+}
