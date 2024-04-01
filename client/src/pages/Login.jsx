@@ -34,7 +34,7 @@ export const Login = () => {
   return (
     <div className="form-container">
       <p className="form-heading">Login</p>
-      <form onSubmit={handleLogin}>
+      <form onSubmit={handleLogin} className="auth-form">
         <input
           ref={emailRef}
           type="email"

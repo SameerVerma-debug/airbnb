@@ -31,7 +31,7 @@ export const Register = () => {
   return (
     <div className="form-container">
       <p className="form-heading">Register</p>
-      <form onSubmit={registerUser}>
+      <form onSubmit={registerUser} className="auth-form">
         <input
           ref={nameRef}
           type="text"

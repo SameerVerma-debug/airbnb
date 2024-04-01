@@ -12,7 +12,7 @@
   font-size: xx-large;
 }
 
-form{
+.auth-form{
   display: flex;
   flex-direction: column;
   gap:0.8rem;
@@ -38,6 +38,9 @@ input{
   right:0;
   background-color: rgba(255, 255, 255, 0);
   height: 100%;
+  border: none;
+  padding:0.6rem;
+  cursor: pointer;
 }
 
 .redirect{

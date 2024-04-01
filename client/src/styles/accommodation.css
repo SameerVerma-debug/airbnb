@@ -1,0 +1,128 @@
+.accommodation-page{
+  width:100%;
+}
+
+.accommodations{
+  text-align: center;
+}
+
+#add-new-accommodation{
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  gap:0.3rem;
+  margin-bottom: 1.4rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sub-label{
+  color:rgb(100, 100, 100);
+  margin-bottom:0.5rem;
+}
+
+.add-with-link{
+  display: flex;
+  flex-direction: column;
+}
+
+.add-photo-with-link{
+  background-color: rgba(233, 233, 233, 0.827);
+  border:none;
+  padding:0.6rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.5rem;
+  margin-bottom:0.5rem;
+  width:20vw;
+  min-width: fit-content;
+  max-width:200px;
+}
+
+.upload-photo{
+  border: 1px solid lightgray;
+  background:transparent;
+  border-radius: 1rem;
+  padding:4rem;
+  padding-top:2rem;
+  padding-bottom: 2rem;
+  cursor: pointer;
+  font-size: x-large;
+  color: rgb(100, 100, 100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap:0.35rem;
+}
+
+.perks{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap:0.6rem;
+}
+
+.perk{
+  border: 1px solid lightgray;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap:0.3rem;
+  padding:1rem;
+  border-radius: 0.5rem;
+}
+
+.check-in-out{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap:0.8rem;
+  padding-top:0.5rem;
+}
+
+.check-in-out h3{
+  padding-bottom:0.3rem;
+}
+
+#save{
+  margin-top:1rem;
+  width:100%;
+}
+
+h2{
+  margin-top:2rem;
+}
+
+textarea{
+  width: 100%;
+  height:8em;
+  border: 1px solid lightgray;
+  outline: none;
+  padding:0.5rem;
+}
+
+input[type="checkbox"]{
+  width: fit-content;
+}
+
+@media screen and (max-width: 768px){
+  .perks{
+    grid-template-columns: auto auto;
+  }
+  .check-in-out{
+    grid-template-columns: auto auto;
+  }
+}
+
+@media screen and (max-width: 400px){
+  .perks{
+    grid-template-columns: auto;
+  }
+  .check-in-out{
+    grid-template-columns: auto;
+  }
+  .add-photo-with-link{
+    margin-left: 0;
+    margin-right: auto;
+  }
+}

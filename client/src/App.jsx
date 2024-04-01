@@ -9,7 +9,7 @@ import { UserContextProvider } from "./context/userContext";
 import { Account } from "./pages/Account";
 import { Profile } from "./components/Profile";
 import { Bookings } from "./components/Bookings";
-import { Accommodations } from "./components/Accommodations";
+import { Accommodations } from "./components/Accommodation/Accommodations";
 
 axios.defaults.baseURL = "http://localhost:4000";
 axios.defaults.withCredentials = true;
@@ -23,7 +23,7 @@ function App() {
             <Route path="account" element={<Account />}>
               <Route path="profile" element={<Profile />} />
               <Route path="bookings" element={<Bookings />} />
-              <Route path="accommodations" element={<Accommodations />} />
+              <Route path="accommodations/:action?" element={<Accommodations />} />
             </Route>
           </Route>
           <Route path="/login" element={<Login />} />

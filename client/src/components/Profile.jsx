@@ -21,7 +21,7 @@ export const Profile = () => {
   return (
     <div className="profile-page account-subpage">
       <p>{`Logged in as ${user?.name}`}</p>
-      <button onClick={handleLogout} id="logout-button">Logout</button>
+      <button className="primary" onClick={handleLogout} id="logout-button">Logout</button>
     </div>
   )
 }
