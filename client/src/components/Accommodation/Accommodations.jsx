@@ -1,7 +1,7 @@
 import { FaPlus } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
 import "../../styles/accommodation.css";
-import { AccommodationForm } from "./AccommodationForm";
+import { AddAccommodation } from "./AddAccommodation";
 export const Accommodations = () => {
   const { action } = useParams();
   return (
@@ -21,7 +21,7 @@ export const Accommodations = () => {
         </>
       )}
       {action === "new" && (
-        <AccommodationForm/>
+        <AddAccommodation/>
       )}
     </div>
   );

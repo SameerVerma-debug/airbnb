@@ -2,8 +2,9 @@ import { IoCloudUploadOutline } from "react-icons/io5";
 import { Button } from "../Button";
 import { Perks } from "./Perks";
 import { useRef, useState } from "react";
+import axios from "axios";
 
-export const AccommodationForm = () => {
+export const AddAccommodation = () => {
   const titleRef = useRef(null);
   const addressRef = useRef(null);
   const photoLinkRef = useRef(null);
@@ -13,16 +14,29 @@ export const AccommodationForm = () => {
   const checkOutRef = useRef(null);
   const guestsRef = useRef(null);
 
-  const [addedPhotos,setAddedPhotos] = useState([]);
-  const [perks,setPerks] = useState([]);
+  const [addedPhotos, setAddedPhotos] = useState([]);
+  const [perks, setPerks] = useState([]);
+
+  const addPhotoByLink = async () => {
+    const { data: filename } = await axios.post("/upload-by-link", {
+      link: photoLinkRef.current.value,
+    });
+    setAddedPhotos((prev) => {
+      return [...prev, filename];
+    });
+    photoLinkRef.current.value = "";
+  };
 
   return (
     <div className="accommodation-form-container">
       <form className="new-accommodation-form">
-
         <h2>Title</h2>
         <p className="sub-label">Title for your place</p>
-        <input ref={titleRef} type="text" placeholder="title, for example: My Apartment" />
+        <input
+          ref={titleRef}
+          type="text"
+          placeholder="title, for example: My Apartment"
+        />
 
         <h2>Address</h2>
         <p className="sub-label">Address for this place</p>
@@ -31,16 +45,35 @@ export const AccommodationForm = () => {
         <h2>Photos</h2>
         <p className="sub-label">more = better</p>
         <div className="add-with-link">
-          <input ref={photoLinkRef} type="text" placeholder="Add using a link ...jpg" />
-          <button type="button" className="add-photo-with-link">
+          <input
+            ref={photoLinkRef}
+            type="text"
+            placeholder="Add using a link ...jpg"
+          />
+          <button
+            onClick={addPhotoByLink}
+            type="button"
+            className="add-photo-with-link"
+          >
             Add Photo
           </button>
         </div>
-        <div className="form-photos">
+        <div className="uploadbutton-photos">
           <button className="upload-photo" type="button">
             <IoCloudUploadOutline />
             Upload
           </button>
+          <div className="form-photos-container">
+            {addedPhotos.length > 0 &&
+              addedPhotos.map((link) => {
+                return (
+                  <img
+                    className="form-photo"
+                    src={"http://localhost:4000/uploads/" + link}
+                  />
+                );
+              })}
+          </div>
         </div>
 
         <h2>Description</h2>
@@ -49,7 +82,7 @@ export const AccommodationForm = () => {
 
         <h2>Perks</h2>
         <p className="sub-label">Select all the perks of your place</p>
-        <Perks selected={perks} onChange={setPerks}/>
+        <Perks selected={perks} onChange={setPerks} />
 
         <h2>Extra info</h2>
         <p className="sub-label">house rules, etc.</p>

@@ -89,6 +89,23 @@
   width:100%;
 }
 
+.uploadbutton-photos{
+  display: flex;
+  gap:1rem;
+  margin-top:1rem;
+}
+
+.form-photos-container{
+  display: flex;
+  gap:0.4rem;
+  flex-wrap: wrap;
+}
+
+.form-photo{
+  height:6em;
+  border-radius: 0.4rem;
+}
+
 h2{
   margin-top:2rem;
 }
