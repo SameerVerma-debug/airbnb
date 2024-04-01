@@ -10,9 +10,8 @@ export const Login = () => {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const navigate = useNavigate();
-  const {setUser} = useContext(UserContext);
+  const {setUser,setUserFetched} = useContext(UserContext);
   const [showPassword, setShowPassword] = useState(false);
-  const [responseMessage,setResponseMessage] = useState(null);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -22,13 +21,13 @@ export const Login = () => {
         email:emailRef.current.value,
         password:passwordRef.current.value
       });
-      setResponseMessage("Login Successful!");
       setUser(res.data);
+      setUserFetched(true);
+      alert("Login Successful! Redirecting to Home page");
       navigate("/");
     }
     catch(err){
-      setResponseMessage("Email or Password does not exist");
-      console.log(err);
+      alert("Email or Password is incorrect");
     }
   }
 
@@ -63,7 +62,6 @@ export const Login = () => {
             )}
           </button>
         </div>
-        {responseMessage && <p className="response-message">{responseMessage}</p>}
         <Button id="submit" text="Login" />
       </form>
       <div className="redirect">

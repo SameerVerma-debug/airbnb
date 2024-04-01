@@ -4,32 +4,14 @@ import { IoIosSearch } from "react-icons/io";
 import { FaCircleUser } from "react-icons/fa6";
 import "../styles/header.css";
 import { Link } from "react-router-dom";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { UserContext } from "../context/userContext";
-import axios from "axios";
+import { useFetchUser } from "../hooks/useFetchUser";
 export const Header = () => {
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
-  if (!user) {
-    useEffect(() => {
-      let ignore = false;
-      if (!ignore) {
-        try {
-          const fetchUser = async () => {
-            const {data} = await axios.get("/profile");
-            setUser(data);
-          };
-          fetchUser();
-        } catch (err) {
-          console.log(err);
-        }
-      }
+  !user && useFetchUser({ path: "/profile", dependencies: [] });
 
-      return () => {
-        ignore = true;
-      };
-    },[]);
-  }
   return (
     <div className="header">
       <Link to="/" className="logo">
@@ -46,7 +28,7 @@ export const Header = () => {
         </button>
       </div>
 
-      <Link to={user ? "/account" : "/login"} className="profile">
+      <Link to={user ? "/account/profile" : "/login"} className="profile">
         <RxHamburgerMenu size={18} />
         <FaCircleUser size={25} opacity={0.5} />
         {user && <p>{user.name}</p>}

@@ -1,0 +1,34 @@
+.account{
+  padding:1rem;
+  padding-top: 0;
+  margin-top:0.8rem;
+}
+
+.navlink{
+  display: flex;
+  align-items: center;
+  gap:0.3rem;
+  text-decoration: none;
+  color:black;
+  padding-top:0.5rem;
+  padding-bottom:0.5rem;
+  padding-left: 1rem;
+  padding-right:1rem;
+  border-radius: 1.3rem;
+  font-weight: bold;
+  font-size: 1.05rem;
+  letter-spacing: 0.03rem;
+  background-color: rgba(232, 232, 232, 0.766);
+}
+
+.active{
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.navbar{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap:1rem;
+}

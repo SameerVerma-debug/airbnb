@@ -11,7 +11,6 @@ export const Register = () => {
   const passwordRef = useRef(null);
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
-  const [responseMessage,setResponseMessage] = useState(null);
 
   const registerUser = async(e) => {
     e.preventDefault();
@@ -21,11 +20,11 @@ export const Register = () => {
         email:emailRef.current.value,
         password:passwordRef.current.value
       });
-      setResponseMessage("Registration Successful! Redirecting to Login page");
+      alert("Registration Successful! Redirecting to Login Page")
       navigate("/login");
     }
     catch(err){
-      setResponseMessage("Registration Not Successful! Try Again");
+      alert("Registration not successful! Try Again")
     }
     
   };
@@ -67,7 +66,6 @@ export const Register = () => {
             )}
           </button>
         </div>
-        {responseMessage && <p className="response-message">{responseMessage}</p>}
         <Button id="submit" text="Register" />
       </form>
       <div className="redirect">
