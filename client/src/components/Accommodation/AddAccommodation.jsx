@@ -1,34 +1,30 @@
-import { IoCloudUploadOutline } from "react-icons/io5";
 import { Button } from "../Button";
 import { Perks } from "./Perks";
 import { useRef, useState } from "react";
-import axios from "axios";
+import {ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { UploadPhotos } from "./UploadPhotos";
 
 export const AddAccommodation = () => {
   const titleRef = useRef(null);
   const addressRef = useRef(null);
-  const photoLinkRef = useRef(null);
   const descriptionRef = useRef(null);
   const extraInfoRef = useRef(null);
   const checkInRef = useRef(null);
   const checkOutRef = useRef(null);
   const guestsRef = useRef(null);
 
-  const [addedPhotos, setAddedPhotos] = useState([]);
   const [perks, setPerks] = useState([]);
-
-  const addPhotoByLink = async () => {
-    const { data: filename } = await axios.post("/upload-by-link", {
-      link: photoLinkRef.current.value,
-    });
-    setAddedPhotos((prev) => {
-      return [...prev, filename];
-    });
-    photoLinkRef.current.value = "";
-  };
 
   return (
     <div className="accommodation-form-container">
+      <ToastContainer
+        position="top-right"
+        autoClose={1000}
+        rtl={false}
+        pauseOnHover={false}
+        theme="dark"
+      />
       <form className="new-accommodation-form">
         <h2>Title</h2>
         <p className="sub-label">Title for your place</p>
@@ -44,37 +40,7 @@ export const AddAccommodation = () => {
 
         <h2>Photos</h2>
         <p className="sub-label">more = better</p>
-        <div className="add-with-link">
-          <input
-            ref={photoLinkRef}
-            type="text"
-            placeholder="Add using a link ...jpg"
-          />
-          <button
-            onClick={addPhotoByLink}
-            type="button"
-            className="add-photo-with-link"
-          >
-            Add Photo
-          </button>
-        </div>
-        <div className="uploadbutton-photos">
-          <button className="upload-photo" type="button">
-            <IoCloudUploadOutline />
-            Upload
-          </button>
-          <div className="form-photos-container">
-            {addedPhotos.length > 0 &&
-              addedPhotos.map((link) => {
-                return (
-                  <img
-                    className="form-photo"
-                    src={"http://localhost:4000/uploads/" + link}
-                  />
-                );
-              })}
-          </div>
-        </div>
+        <UploadPhotos/>
 
         <h2>Description</h2>
         <p className="sub-label">Description of the place</p>
