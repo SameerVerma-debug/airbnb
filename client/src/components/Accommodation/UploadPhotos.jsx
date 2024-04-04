@@ -3,9 +3,9 @@ import axios from "axios";
 import { IoCloudUploadOutline } from "react-icons/io5";
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-export const UploadPhotos = () => {
+export const UploadPhotos = ({addedPhotos,setAddedPhotos}) => {
   const photoLinkRef = useRef(null);
-  const [addedPhotos, setAddedPhotos] = useState([]);
+  
 
   const addPhotoByLink = async () => {
     let res;
@@ -16,7 +16,6 @@ export const UploadPhotos = () => {
       setAddedPhotos((prev) => {
         return [...prev, res.data];
       });
-      toast("Image Uploaded");
     } catch (err) {
       toast("Image not uploaded");
     } finally {
@@ -30,13 +29,17 @@ export const UploadPhotos = () => {
     for (let i = 0; i < files.length; i++) {
       data.append("photos", files[i]);
     }
-    const res = await axios.post("/upload", data, {
-      headers: { "Content-Type": "multipart/form-data" },
-    });
-    setAddedPhotos((prev) => {
-      return [...prev, ...res.data];
-    });
-    toast("Image Uploaded");
+    try{
+      const res = await axios.post("/upload", data, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+      setAddedPhotos((prev) => {
+        return [...prev, ...res.data];
+      });
+    }
+    catch(err){
+      toast("Image not Uploaded!");
+    }
   };
   return (
     <>

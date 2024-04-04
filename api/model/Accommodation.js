@@ -3,7 +3,7 @@ const {Schema} = mongoose;
 
 const accommodationSchema = new Schema({
   owner:{
-    type:mongoose.Schema.Types.ObjectId, ref:'User'
+    type:mongoose.Schema.Types.ObjectId
   },
   title:String,
   address:String,
@@ -11,9 +11,9 @@ const accommodationSchema = new Schema({
   description: String,
   perks:[String],
   extraInfo: String,
-  checkIn:Number,
-  checkOut:Number,
-  maxGuests: Number
+  checkIn:String,
+  checkOut:String,
+  guestsInfo: String
 })
 
 module.exports = mongoose.model('accommodation',accommodationSchema);

@@ -19,14 +19,16 @@ app.use(
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({extended:true}))
-app.use("/uploads",express.static(path.join(__dirname,"uploads")));
 
+app.use("/uploads",express.static(path.join(__dirname,"uploads")));
 app.use("/register", require("./routes/auth/register"));
 app.use("/login", require("./routes/auth/login"));
 app.use("/profile", require("./routes/profile"));
 app.use("/logout", require("./routes/logout"));
 app.use("/upload-by-link",require("./routes/uploadByLink"))
 app.use("/upload",require("./routes/upload"));
+app.use("/accommodations",require("./routes/accommodations"));
+
 
 mongoose.connection.once("open", () => {
   console.log("Database Connected");

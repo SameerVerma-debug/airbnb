@@ -1,9 +1,13 @@
 import { Button } from "../Button";
 import { Perks } from "./Perks";
-import { useRef, useState } from "react";
-import {ToastContainer} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { useEffect, useRef, useState } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { UploadPhotos } from "./UploadPhotos";
+import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
+import "../../styles/accommodation-form.css"
+import { useFetch } from "../../hooks/useFetch";
 
 export const AddAccommodation = () => {
   const titleRef = useRef(null);
@@ -15,6 +19,42 @@ export const AddAccommodation = () => {
   const guestsRef = useRef(null);
 
   const [perks, setPerks] = useState([]);
+  const [addedPhotos, setAddedPhotos] = useState([]);
+  const navigate = useNavigate();
+  const {id} = useParams();
+
+  const [accommodationData] = useFetch({path:`/accommodations/${id}`,dependencies:[id]});
+
+  // if(accommodationData){
+  //   titleRef.current.value = accommodationData.title;
+  //   addressRef.current.value = accommodationData.address;
+  //   addedPhotos = accommodationData.photos,
+  //   descriptionRef.current.value = accommodationData.description;
+  //   perks = accommodationData.perks,
+  //   extraInfoRef.current.value = accommodationData.extraInfo;
+  //   checkInRef.current.value = accommodationData.checkIn;
+  //   checkOutRef.current.value = accommodationData.checkOut;
+  //   guestsRef.current.value = accommodationData.guestsInfo;
+  // }
+
+
+  const addNewPlace = async(e) => {
+    e.preventDefault();
+    const accommodationData = {
+      title: titleRef.current.value,
+      address: addressRef.current.value,
+      photos: addedPhotos,
+      description: descriptionRef.current.value,
+      perks:perks,
+      extraInfo: extraInfoRef.current.value,
+      checkIn: checkInRef.current.value,
+      checkOut: checkOutRef.current.value,
+      guestsInfo: guestsRef.current.value
+    };
+
+    await axios.post("/accommodations",accommodationData);
+    navigate("/account/accommodations");
+  }
 
   return (
     <div className="accommodation-form-container">
@@ -25,7 +65,7 @@ export const AddAccommodation = () => {
         pauseOnHover={false}
         theme="dark"
       />
-      <form className="new-accommodation-form">
+      <form onSubmit={addNewPlace} className="new-accommodation-form">
         <h2>Title</h2>
         <p className="sub-label">Title for your place</p>
         <input
@@ -40,7 +80,10 @@ export const AddAccommodation = () => {
 
         <h2>Photos</h2>
         <p className="sub-label">more = better</p>
-        <UploadPhotos/>
+        <UploadPhotos
+          addedPhotos={addedPhotos}
+          setAddedPhotos={setAddedPhotos}
+        />
 
         <h2>Description</h2>
         <p className="sub-label">Description of the place</p>
