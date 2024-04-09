@@ -3,10 +3,10 @@ import axios from "axios";
 import { IoCloudUploadOutline } from "react-icons/io5";
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { AddedPhotos } from "./AddedPhotos";
 export const UploadPhotos = ({addedPhotos,setAddedPhotos}) => {
   const photoLinkRef = useRef(null);
   
-
   const addPhotoByLink = async () => {
     let res;
     try {
@@ -68,18 +68,7 @@ export const UploadPhotos = ({addedPhotos,setAddedPhotos}) => {
           <IoCloudUploadOutline />
           Upload
         </label>
-        <div className="form-photos-container">
-          {addedPhotos.length > 0 &&
-            addedPhotos.map((link) => {
-              return (
-                <img
-                  key={link}
-                  className="form-photo"
-                  src={"http://localhost:4000/uploads/" + link}
-                />
-              );
-            })}
-        </div>
+        <AddedPhotos addedPhotos={addedPhotos} setAddedPhotos={setAddedPhotos}/>
       </div>
     </>
   );

@@ -17,32 +17,32 @@ export const Perks =  ({selected,onChange}) => {
   return (
     <div className="perks">
           <label className="perk">
-            <input className="checkbox" name="wifi" type="checkbox" onChange={handleCbChange}/>
+            <input className="checkbox" checked={selected.includes('wifi')} name="wifi" type="checkbox" onChange={handleCbChange}/>
             <IoWifi />
             <span>Wifi</span>
           </label>
           <label className="perk">
-            <input className="checkbox" name="parking" type="checkbox" onChange={handleCbChange}/>
+            <input className="checkbox" checked={selected.includes('parking')} name="parking" type="checkbox" onChange={handleCbChange}/>
             <RiParkingBoxFill />
             <span>Free Parking Spot</span>
           </label>
           <label className="perk">
-            <input className="checkbox" name="tv" type="checkbox" onChange={handleCbChange}/>
+            <input className="checkbox"  checked={selected.includes('tv')} name="tv" type="checkbox" onChange={handleCbChange}/>
             <PiTelevisionSimpleDuotone />
             <span>TV</span>
           </label>
           <label className="perk">
-            <input className="checkbox" name="radio" type="checkbox" onChange={handleCbChange}/>
+            <input className="checkbox"  checked={selected.includes('radio')} name="radio" type="checkbox" onChange={handleCbChange}/>
             <FaRadio />
             <span>Radio</span>
           </label>
           <label className="perk">
-            <input className="checkbox" name="pets" type="checkbox" onChange={handleCbChange}/>
+            <input className="checkbox"  checked={selected.includes('pets')} name="pets" type="checkbox" onChange={handleCbChange}/>
             <MdPets />
             <span>Pets</span>
           </label>
           <label className="perk">
-            <input className="checkbox" name="entrance" type="checkbox" onChange={handleCbChange} />
+            <input className="checkbox"  checked={selected.includes('entrance')} name="entrance" type="checkbox" onChange={handleCbChange} />
             <GiCryptEntrance />
             <span>Private entrance</span>
           </label>

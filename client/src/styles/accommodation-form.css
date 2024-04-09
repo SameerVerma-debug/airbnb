@@ -83,6 +83,22 @@
   flex-wrap: wrap;
 }
 
+.form-photo-container{
+  position: relative;
+}
+
+.delete-photo{
+  position: absolute;
+  display: flex;
+  right: 0.2rem;
+  bottom: 0.4rem;
+  padding:0.5rem;
+  background-color: black;
+  color: var(--primary-color);
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
 .form-photo{
   height:6em;
   border-radius: 0.4rem;

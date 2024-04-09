@@ -10,7 +10,7 @@ import { Account } from "./pages/Account";
 import { Profile } from "./components/Profile";
 import { Bookings } from "./components/Bookings";
 import { Accommodations } from "./components/Accommodation/Accommodations";
-import { AddAccommodation } from "./components/Accommodation/AddAccommodation";
+import { AccommodationForm } from "./components/Accommodation/AccommodationForm";
 
 axios.defaults.baseURL = "http://localhost:4000";
 axios.defaults.withCredentials = true;
@@ -25,8 +25,8 @@ function App() {
               <Route path="profile" element={<Profile />} />
               <Route path="bookings" element={<Bookings />} />
               <Route path="accommodations" element={<Accommodations />} />
-              <Route path="accommodations/new" element={<AddAccommodation />} />
-              <Route path="accommodations/:id" element={<AddAccommodation />} />
+              <Route path="accommodations/new" element={<AccommodationForm />} />
+              <Route path="accommodations/:id" element={<AccommodationForm />} />
             </Route>
           </Route>
           <Route path="/login" element={<Login />} />
