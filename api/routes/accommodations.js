@@ -1,15 +1,11 @@
-const express = require("express");
-const handleAddAccommodation = require("../controller/addAccommodationController");
-const handleGetAccommodations = require("../controller/getAccommodationsController");
-const handleGetAccommodation = require("../controller/getAccommodationController");
-const handleEditAccommodation = require("../controller/editAccommodationController");
+const express = require('express');
+const Accommodation = require('../model/Accommodation');
 const router = express.Router();
 
-router
-  .route("/")
-  .get(handleGetAccommodations)
-  .post(handleAddAccommodation)
-  .put(handleEditAccommodation);
+router.route("/")
+      .get(async (req,res) => {
+        const allAccommodations = await Accommodation.find();
+        res.json(allAccommodations);
+      })
 
-router.route("/:id").get(handleGetAccommodation);
 module.exports = router;

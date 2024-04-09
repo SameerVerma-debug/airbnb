@@ -1,8 +1,8 @@
-.accommodation-page{
+.user-accommodation-page{
   width:100%;
 }
 
-#add-new-accommodation{
+#add-new-user-accommodation{
   display: flex;
   justify-content: center;
   align-self: center;
@@ -12,13 +12,13 @@
   margin-right: auto;
 }
 
-.accommodations{
+.user-accommodations{
   display: grid;
   gap:2rem;
   grid-template-columns: repeat(auto-fit,minmax(200px,250px));
 }
 
-.accommodation{
+.user-accommodation{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,24 +27,24 @@
   border-radius:0.7rem;
 }
 
-.accommodation-image{
+.user-accommodation-image{
   height:20vh;
   width: 100%;
   object-fit: contain;
   margin-bottom:1rem;
 }
 
-.accommodation-title{
+.user-accommodation-title{
   font-weight: bold;
   font-size: large;
   margin-bottom: 0.4rem;
 }
 
-.accommodation-image-title-address{
+.user-accommodation-image-title-address{
   flex:1;
 }
 
-.edit-accommodation{
+.edit-user-accommodation{
   color: white;
   background-color: var(--primary-color);
   padding:0.7rem;
@@ -56,7 +56,7 @@
 }
 
 @media screen and (max-width:500px){
-  .accommodations{
+  .user-accommodations{
     place-content: center;
   }
 }

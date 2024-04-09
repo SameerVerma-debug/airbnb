@@ -13,6 +13,7 @@ const handleAddAccommodation = async (req, res) => {
     checkIn,
     checkOut,
     guestsInfo,
+    price
   } = req.body;
 
   await Accommodation.create({
@@ -26,6 +27,7 @@ const handleAddAccommodation = async (req, res) => {
     checkIn,
     checkOut,
     guestsInfo,
+    price
   });
 
   res.sendStatus(201);

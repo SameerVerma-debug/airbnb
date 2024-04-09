@@ -87,16 +87,22 @@
   position: relative;
 }
 
-.delete-photo{
+.delete-photo,
+.main-photo{
   position: absolute;
   display: flex;
-  right: 0.2rem;
-  bottom: 0.4rem;
+  right: 0.4rem;
+  bottom: 0.6rem;
   padding:0.5rem;
   background-color: black;
   color: var(--primary-color);
   border-radius: 0.4rem;
   cursor: pointer;
+}
+
+.main-photo{
+  left:0.4rem;
+  right:auto;
 }
 
 .form-photo{

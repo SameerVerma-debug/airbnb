@@ -15,6 +15,7 @@ const handleEditAccommodation = async (req, res) => {
     checkIn,
     checkOut,
     guestsInfo,
+    price
   } = req.body;
 
   const foundAccommodation = await Accommodation.findById(id);
@@ -32,6 +33,7 @@ const handleEditAccommodation = async (req, res) => {
     checkIn,
     checkOut,
     guestsInfo,
+    price
   });
   await foundAccommodation.save();
   res.status(200).json({ message: "Accommodation Edit Successful" });

@@ -1,0 +1,44 @@
+.home {
+  padding: 2rem;
+  display: grid;
+  place-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  row-gap: 3rem;
+  column-gap: 2rem;
+}
+
+.accommodation-image-container {
+  display: flex;
+  border-radius: 1rem;
+}
+
+.accommodation-image {
+  object-fit: cover;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 1rem;
+}
+
+.accommodation-address {
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: large;
+}
+
+.accommodation-title {
+  width: 100%;
+  white-space: wrap;
+  color: rgb(104, 104, 104);
+}
+
+.accommodation-price {
+  margin-top: 0.4rem;
+  font-weight: bold;
+}
+
+@media screen and (max-width:300px){
+  .home{
+    grid-template-columns: 230px;
+    
+  }
+}

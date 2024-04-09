@@ -17,6 +17,7 @@ export const AccommodationForm = () => {
   const checkInRef = useRef(null);
   const checkOutRef = useRef(null);
   const guestsRef = useRef(null);
+  const priceRef = useRef(null);
 
   const [perks, setPerks] = useState([]);
   const [addedPhotos, setAddedPhotos] = useState([]);
@@ -26,7 +27,7 @@ export const AccommodationForm = () => {
   let accommodationData;
   if(id){
     [accommodationData] = useFetch({
-      path: `/accommodations/${id}`,
+      path: `/user-accommodations/${id}`,
       dependencies: [id],
     });
   }
@@ -42,6 +43,7 @@ export const AccommodationForm = () => {
       checkInRef.current.value = accommodationData.checkIn;
       checkOutRef.current.value = accommodationData.checkOut;
       guestsRef.current.value = accommodationData.guestsInfo;
+      priceRef.current.value = accommodationData.price
     }
   }, [accommodationData]);
 
@@ -57,11 +59,12 @@ export const AccommodationForm = () => {
       checkIn: checkInRef.current.value,
       checkOut: checkOutRef.current.value,
       guestsInfo: guestsRef.current.value,
+      price:priceRef.current.value
     };
 
     id
-      ? await axios.put("/accommodations", {...accommodationData,id})
-      : await axios.post("/accommodations", accommodationData);
+      ? await axios.put("/user-accommodations", {...accommodationData,id})
+      : await axios.post("/user-accommodations", accommodationData);
     navigate("/account/accommodations");
   };
 
@@ -120,6 +123,10 @@ export const AccommodationForm = () => {
           <div>
             <h3>Max Guests</h3>
             <input ref={guestsRef} type="number" placeholder="4" />
+          </div>
+          <div>
+            <h3>Price in USD (Per Night)</h3>
+            <input ref={priceRef} type="number" placeholder="50"/>
           </div>
         </div>
         <Button id="save" text="Save" />

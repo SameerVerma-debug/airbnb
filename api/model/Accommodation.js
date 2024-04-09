@@ -13,7 +13,8 @@ const accommodationSchema = new Schema({
   extraInfo: String,
   checkIn:String,
   checkOut:String,
-  guestsInfo: String
+  guestsInfo: String,
+  price:Number
 })
 
 module.exports = mongoose.model('accommodation',accommodationSchema);
