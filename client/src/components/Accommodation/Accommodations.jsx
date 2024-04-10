@@ -1,6 +1,6 @@
 import { FaPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import "../../styles/accommodation.css";
+import "../../styles/user-accommodation.css";
 import { useFetch } from "../../hooks/useFetch";
 import { UserAccommodations } from "./UserAccommodations";
 export const Accommodations = () => {

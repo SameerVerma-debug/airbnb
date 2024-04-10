@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 import "../styles/home.css";
 export const Home = () => {
@@ -10,63 +11,24 @@ export const Home = () => {
       {accommodations &&
         accommodations.map((accommodation) => {
           return (
-            <div className="accommodation" key={accommodation._id}>
-              <div className="accommodation-image-container">
+            <Link to={`/accommodation/${accommodation._id}`} className="home-accommodation" key={accommodation._id}>
+              <div className="home-accommodation-image-container">
                 <img
-                className="accommodation-image"
+                className="home-accommodation-image"
                   src={
                     "http://localhost:4000/uploads/" + accommodation?.photos[0]
                   }
                 />
               </div>
-              <p className="accommodation-address">{accommodation.address}</p>
-              <p className="accommodation-title">{accommodation.title}</p>
-              <p className="accommodation-price">
+              <p className="home-accommodation-address">{accommodation.address}</p>
+              <p className="home-accommodation-title">{accommodation.title}</p>
+              <p className="home-accommodation-price">
                 <span>${accommodation.price}</span> per night
               </p>
-            </div>
+            </Link>
           );
         })}
-        {accommodations &&
-        accommodations.map((accommodation) => {
-          return (
-            <div className="accommodation" key={accommodation._id}>
-              <div className="accommodation-image-container">
-                <img
-                className="accommodation-image"
-                  src={
-                    "http://localhost:4000/uploads/" + accommodation?.photos[0]
-                  }
-                />
-              </div>
-              <p className="accommodation-address">{accommodation.address}</p>
-              <p className="accommodation-title">{accommodation.title}</p>
-              <p className="accommodation-price">
-                <span>${accommodation.price}</span> per night
-              </p>
-            </div>
-          );
-        })}
-        {accommodations &&
-        accommodations.map((accommodation) => {
-          return (
-            <div className="accommodation" key={accommodation._id}>
-              <div className="accommodation-image-container">
-                <img
-                className="accommodation-image"
-                  src={
-                    "http://localhost:4000/uploads/" + accommodation?.photos[0]
-                  }
-                />
-              </div>
-              <p className="accommodation-address">{accommodation.address}</p>
-              <p className="accommodation-title">{accommodation.title}</p>
-              <p className="accommodation-price">
-                <span>${accommodation.price}</span> per night
-              </p>
-            </div>
-          );
-        })}
+        
     </div>
   );
 };

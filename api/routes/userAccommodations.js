@@ -11,5 +11,5 @@ router
   .post(handleAddAccommodation)
   .put(handleEditAccommodation);
 
-router.route("/:id").get(handleGetAccommodation);
+
 module.exports = router;

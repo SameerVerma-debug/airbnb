@@ -6,7 +6,7 @@ const handleGetAccommodation = async(req,res) => {
     return res.sendStatus(401);
   }
 
-  const foundAccommodation = await Accommodation.findById(id).exec();
+  const foundAccommodation = await Accommodation.findById(id);
   res.json(foundAccommodation);
 }
 

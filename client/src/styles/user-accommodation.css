@@ -1,0 +1,64 @@
+.user-accommodation-page{
+  width:100%;
+}
+
+#add-new-user-accommodation{
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  gap:0.3rem;
+  margin-bottom: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.user-accommodations{
+  display: grid;
+  gap:2rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  place-content: center;
+}
+
+.user-accommodation{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.04);
+  padding:1rem;
+  border-radius:0.7rem;
+}
+
+.user-accommodation-image{
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 16/9;
+  margin-bottom:1rem;
+}
+
+.user-accommodation-title{
+  font-weight: bold;
+  font-size: large;
+  margin-bottom: 0.4rem;
+}
+
+.user-accommodation-image-title-address{
+  flex:1;
+}
+
+.edit-user-accommodation{
+  color: white;
+  background-color: var(--primary-color);
+  padding:0.7rem;
+  border: none;
+  margin-top: 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+@media screen and (max-width:300px){
+  .user-accommodations{
+    grid-template-columns: 230px;
+    
+  }
+}

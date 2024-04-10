@@ -27,7 +27,7 @@ export const AccommodationForm = () => {
   let accommodationData;
   if(id){
     [accommodationData] = useFetch({
-      path: `/user-accommodations/${id}`,
+      path: `/accommodations/${id}`,
       dependencies: [id],
     });
   }
