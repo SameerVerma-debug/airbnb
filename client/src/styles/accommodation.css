@@ -1,27 +1,32 @@
 .accommodation-container{
   padding:1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .accommodation{
-  display: flex;
-  flex-direction: column;
-  text-align: center;
+  width:70vw;
 }
 
-.accommodation-title-address{
-  display: flex;
-  flex-direction: column;
+.accommodation-location{
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: large;
 }
 
 .accommodation-photos-container{
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap:0.4rem;
-  width:90vw;
+  width:100%;
   height: fit-content;
   max-width: 65em;
   margin-top: 2rem;
   position: relative;
+  cursor: pointer;
 }
 
 .accommodation-photos-container2{
@@ -97,4 +102,105 @@
   padding:0.7rem;
   right:10%;
   cursor: pointer;
+}
+
+.accommodation-description-check-in-out-book{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  width: 100%;
+  gap:2rem;
+}
+
+.accommodation-description{
+  text-align: justify;
+  text-justify:inter-word;
+}
+
+.accommodation-book{
+  background-color: rgba(211, 211, 211, 0.099);
+  border:1px solid lightgray;
+  border-radius: 1rem;
+  height: fit-content;
+  width: 100%;
+  padding:1rem;
+  padding-top:0;
+}
+
+.accommodation-check-in-out{
+  margin-top: 0.8em;
+}
+
+.accommodation-book-price{
+  text-align: center;
+}
+
+.accommodation-book-dates{
+  margin-top: 0.6rem;
+  display: flex;
+  
+  flex-direction: column;
+  gap:0.4rem;
+  border: 1px solid lightgray;
+  padding-bottom:0.5rem;
+}
+
+.book-check-in-out{
+  display: flex;
+  border-bottom: 1px solid lightgray;
+}
+
+.book-input{
+  border-radius: 0;
+  border: none;
+}
+
+.book-check-in{
+  border-right: 1px solid lightgray;
+}
+
+.accommodation-book-date{
+  padding:0.2rem;
+}
+
+.book-button{
+  width: 100%;
+  margin-top:1rem;
+}
+
+.accommodation-extra-info{
+  margin-top:2rem;
+  text-align: justify;
+}
+
+.accommodation-extra-info > h2,
+.accommodation-description > h2{
+  margin-bottom:0.5rem;
+}
+
+.accommodation-extra-info > p{
+  color: rgb(95, 95, 95);
+}
+
+@media screen and (max-width:800px){
+  .accommodation-description-check-in-out-book{
+    grid-template-columns: 1fr;
+    place-content: center;
+  }
+
+  .accommodation{
+    width:90vw;
+  }
+
+  .book-check-in-out{
+    flex-wrap: wrap;
+  }
+
+  .accommodation-book{
+    max-width: fit-content;
+  }
+
+  .accommodation-book-container{
+    display: flex;
+    justify-content: center;
+  }
 }
