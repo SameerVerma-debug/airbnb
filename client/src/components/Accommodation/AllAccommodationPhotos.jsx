@@ -17,7 +17,7 @@ export const AllAccommodationPhotos = ({data,setDataVisibility}) => {
           {data?.photos &&
             data.photos.map((photo) => {
               return (
-                <div>
+                <div key={photo}>
                   <img
                     className="all-photos-photo"
                     src={`http://localhost:4000/uploads/${photo}`}

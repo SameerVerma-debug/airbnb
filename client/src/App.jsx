@@ -9,8 +9,8 @@ import { UserContextProvider } from "./context/userContext";
 import { Account } from "./pages/Account";
 import { Profile } from "./components/Profile";
 import { Bookings } from "./components/Bookings";
-import { Accommodations } from "./components/Accommodation/Accommodations";
-import { AccommodationForm } from "./components/Accommodation/AccommodationForm";
+import { Accommodations } from "./components/UserAccommodation/Accommodations";
+import { AccommodationForm } from "./components/UserAccommodation/AccommodationForm";
 import { Accommodation } from "./pages/Accommodation";
 
 axios.defaults.baseURL = "http://localhost:4000";
