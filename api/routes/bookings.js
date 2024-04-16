@@ -2,7 +2,7 @@ const express = require('express');
 const handleBookingAccommodation = require('../controller/bookingAccommodationController');
 const router = express.Router();
 
-router.route("/:accommodationId") 
+router.route("/") 
       .post(handleBookingAccommodation);
 
 module.exports = router;

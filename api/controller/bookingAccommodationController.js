@@ -5,11 +5,11 @@
 const Booking = require("../model/Booking");
 
 const handleBookingAccommodation = async (req, res) => {
-  const { checkInDate, checkOutDate, noOfGuests, userId } = req.body;
-  const { accommodationId } = req.params;
+  const { accommodationId, checkInDate, checkOutDate, noOfGuests, userId } =
+    req.body;
 
   const previousBookings = await Booking.find({
-    accommodation: accommodationId,
+    accommodationId,
   });
 
   const currDate = new Date();
@@ -45,13 +45,13 @@ const handleBookingAccommodation = async (req, res) => {
   }
 
   const newBooking = await Booking.create({
-    user:userId,
-    accommodation: accommodationId,
+    userId,
+    accommodationId,
     checkInDate: checkIn,
     checkOutDate: checkOut,
     noOfGuests,
   });
-  console.log(newBooking);
+  res.json(newBooking);
 };
 
 module.exports = handleBookingAccommodation;

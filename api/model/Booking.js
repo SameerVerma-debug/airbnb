@@ -2,10 +2,10 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const bookingSchema = new Schema({
-  user:{
+  userId:{
     type: mongoose.Schema.Types.ObjectId,
   },
-  accommodation: {
+  accommodationId: {
     type: mongoose.Schema.Types.ObjectId,
   },
   checkInDate: {

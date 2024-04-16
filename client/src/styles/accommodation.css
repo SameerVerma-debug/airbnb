@@ -147,19 +147,17 @@
 .book-check-in-out{
   display: flex;
   border-bottom: 1px solid lightgray;
+  padding:0.5rem;
 }
 
 .book-input{
   border-radius: 0;
   border: none;
+  background: none;
 }
 
 .book-check-in{
   border-right: 1px solid lightgray;
-}
-
-.accommodation-book-date{
-  padding:0.2rem;
 }
 
 .book-button{
@@ -179,6 +177,20 @@
 
 .accommodation-extra-info > p{
   color: rgb(95, 95, 95);
+}
+
+.form-error{
+  color: red;
+  text-align: center;
+  margin-top:0.3rem;
+  margin-bottom:0.5rem;
+}
+
+.accommodation-booking-total{
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top:1.3rem;
 }
 
 @media screen and (max-width:800px){
