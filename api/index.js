@@ -6,8 +6,12 @@ const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 const connectDB = require("./config/connectdb");
 const path = require("path");
+const cron = require('node-cron');
+const clearOldBookings = require("./utils/clearOldBookings");
 
 connectDB();
+
+cron.schedule("20 3 * * *",clearOldBookings)
 
 app.use(
   cors({

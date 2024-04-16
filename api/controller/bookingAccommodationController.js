@@ -8,29 +8,16 @@ const handleBookingAccommodation = async (req, res) => {
   const { accommodationId, checkInDate, checkOutDate, noOfGuests, userId } =
     req.body;
 
-  const previousBookings = await Booking.find({
+  const bookings = await Booking.find({
     accommodationId,
   });
 
-  const currDate = new Date();
   const checkIn = new Date(checkInDate);
   const checkOut = new Date(checkOutDate);
 
-  const filteredBookings = [];
 
-  for (let it = 0; it < previousBookings.length; it++) {
-    const prevBooking = previousBookings[it];
-    const prevBookingCheckOut = new Date(prevBooking.checkOutDate);
-    const prevBookingId = prevBooking._id;
-    if (prevBookingCheckOut < currDate) {
-      await Booking.findByIdAndDelete(prevBookingId);
-    } else {
-      filteredBookings.push(prevBooking);
-    }
-  }
-  console.log(filteredBookings);
-  for (let it = 0; it < filteredBookings.length; it++) {
-    const booking = filteredBookings[it];
+  for (let it = 0; it < bookings.length; it++) {
+    const booking = bookings[it];
     const bookingCheckInDate = new Date(booking.checkInDate);
     const bookingCheckOutDate = new Date(booking.checkOutDate);
 

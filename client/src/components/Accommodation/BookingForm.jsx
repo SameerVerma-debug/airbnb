@@ -75,16 +75,16 @@ export const BookingForm = () => {
     const checkOutDate = new Date(checkOutDateRef.current.value);
     const noOfGuests = guestsRef.current.value;
 
-    if (
-      !validateBookingForm(
-        checkInDate,
-        checkOutDate,
-        noOfGuests,
-        accommodation.guestsInfo
-      )
-    ) {
-      return;
-    }
+    // if (
+    //   !validateBookingForm(
+    //     checkInDate,
+    //     checkOutDate,
+    //     noOfGuests,
+    //     accommodation.guestsInfo
+    //   )
+    // ) {
+    //   return;
+    // }
 
     const data = {
       accommodationId: accommodation._id,
