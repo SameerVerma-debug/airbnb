@@ -2,9 +2,10 @@ import { differenceInCalendarDays } from "date-fns";
 import { useContext, useRef, useState } from "react";
 import axios from "axios";
 import { AccommodationContext } from "../../pages/Accommodation";
+import { toast } from "react-hot-toast";
 
 export const BookingForm = () => {
-  const {accommodation} = useContext(AccommodationContext);
+  const { accommodation } = useContext(AccommodationContext);
   const [numberOfNights, setNumberOfNights] = useState(0);
   const [bookingErrors, setBookingErrors] = useState({
     date: false,
@@ -18,7 +19,7 @@ export const BookingForm = () => {
     const currDate = new Date();
     if (
       differenceInCalendarDays(checkOutDate, checkInDate) <= 0 ||
-      checkInDate < currDate
+      differenceInCalendarDays(checkInDate, currDate) < 0
     ) {
       return false;
     }
@@ -75,28 +76,34 @@ export const BookingForm = () => {
     const checkOutDate = new Date(checkOutDateRef.current.value);
     const noOfGuests = guestsRef.current.value;
 
-    // if (
-    //   !validateBookingForm(
-    //     checkInDate,
-    //     checkOutDate,
-    //     noOfGuests,
-    //     accommodation.guestsInfo
-    //   )
-    // ) {
-    //   return;
-    // }
+    if (
+      !validateBookingForm(
+        checkInDate,
+        checkOutDate,
+        noOfGuests,
+        accommodation.guestsInfo
+      )
+    ) {
+      return;
+    }
 
     const data = {
       accommodationId: accommodation._id,
       checkInDate,
       checkOutDate,
       noOfGuests,
+      price: accommodation.price * numberOfNights,
     };
 
     try {
       await axios.post(`/bookings`, data);
+      toast.success("Booking Confirmed", {
+        duration: 1500,
+      });
     } catch (err) {
-      alert("Place is reserved for selected dates");
+      toast.error("Place Booked for selected dates", {
+        duration: 1500,
+      });
     }
   };
 
@@ -142,12 +149,10 @@ export const BookingForm = () => {
             {bookingErrors.date && <p className="form-error">Invalid dates</p>}
             <div className="accommodation-book-date">
               <label>No of Guests:</label>
-              <input ref={guestsRef} type="number" min="1"/>
+              <input ref={guestsRef} type="number" min="1" defaultValue="1" />
               {bookingErrors.guest && (
                 <p className="form-error">
-                  {!guestsRef.current.value
-                    ? "Guests cannot be 0 or empty"
-                    : `Max Guests: ${accommodation.guestsInfo}`}
+                  {`Max Guests: ${accommodation.guestsInfo}`}
                 </p>
               )}
             </div>

@@ -8,6 +8,7 @@ import { AccommodationPhotos } from "../components/Accommodation/AccommodationPh
 import { AccommodationTitle } from "../components/Accommodation/AccommodationTitle";
 import { AccommodationDescription } from "../components/Accommodation/AccommodationDescription";
 import { AccommodationExtraInfo } from "../components/Accommodation/AccommodationExtraInfo";
+import { Toaster } from "react-hot-toast";
 
 export const AccommodationContext = createContext();
 
@@ -36,15 +37,16 @@ export const Accommodation = () => {
           value={{ accommodation, setSeeAllPhotos }}
         >
           <div className="accommodation-container">
+            <Toaster position="top-right" reverseOrder={true}/>
             <div className="accommodation">
-              <AccommodationTitle/>
+              <AccommodationTitle />
               <AccommodationPhotos />
 
               <div className="accommodation-description-check-in-out-book">
-                <AccommodationDescription/>
+                <AccommodationDescription />
                 <BookingForm />
               </div>
-              <AccommodationExtraInfo/>
+              <AccommodationExtraInfo />
             </div>
           </div>
         </AccommodationContext.Provider>

@@ -1,132 +1,200 @@
 import { Button } from "../Button";
 import { Perks } from "./Perks";
-import { useEffect, useRef, useState } from "react";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { useState } from "react";
 import { UploadPhotos } from "./UploadPhotos";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import "../../styles/accommodation-form.css";
-import { useFetch } from "../../hooks/useFetch";
+import { Toaster } from "react-hot-toast";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 export const AccommodationForm = () => {
-  const titleRef = useRef(null);
-  const addressRef = useRef(null);
-  const descriptionRef = useRef(null);
-  const extraInfoRef = useRef(null);
-  const checkInRef = useRef(null);
-  const checkOutRef = useRef(null);
-  const guestsRef = useRef(null);
-  const priceRef = useRef(null);
-
   const [perks, setPerks] = useState([]);
   const [addedPhotos, setAddedPhotos] = useState([]);
   const navigate = useNavigate();
   const { id } = useParams();
 
-  let accommodationData;
-  if(id){
-    [accommodationData] = useFetch({
-      path: `/accommodations/${id}`,
-      dependencies: [id],
-    });
-  }
-  
-  useEffect(() => {
-    if (accommodationData) {
-      titleRef.current.value = accommodationData.title;
-      addressRef.current.value = accommodationData.address;
-      setAddedPhotos(accommodationData.photos);
-      descriptionRef.current.value = accommodationData.description;
-      setPerks(accommodationData.perks);
-      extraInfoRef.current.value = accommodationData.extraInfo;
-      checkInRef.current.value = accommodationData.checkIn;
-      checkOutRef.current.value = accommodationData.checkOut;
-      guestsRef.current.value = accommodationData.guestsInfo;
-      priceRef.current.value = accommodationData.price
-    }
-  }, [accommodationData]);
+  const schema = yup.object().shape({
+    title: yup
+      .string("Only alphanumeric characters")
+      .required("Title is required"),
+    address: yup
+      .string("Only alphanumeric characters")
+      .required("Address is required"),
+    description: yup
+      .string("Only alphanumeric characters")
+      .required("Description is required")
+      .min("50", "Atleast 50 words"),
+    extraInfo: yup
+      .string("Only alphanumeric characters")
+      .required("Extra Info is required")
+      .min("50", "Atleast 50 words"),
+    checkIn: yup.string().required("Check in timing is required"),
+    checkOut: yup.string().required("Check out timing is required"),
+    guestsInfo: yup
+      .number("Only numeric value")
+      .required("Max Guests is required"),
+    price: yup
+      .number("Only numeric value")
+      .required("Price is required"),
+  });
 
-  const addOrEditAccommodation = async (e) => {
-    e.preventDefault();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+    defaultValues: async () => {
+      if (!id) {
+        return {
+          title: "",
+          address: "",
+          description: "",
+          extraInfo: "",
+          checkIn: "",
+          checkOut: "",
+          guestsInfo: 1,
+          price: 50,
+        };
+      }
+
+      const res = await axios.get(`/accommodations/${id}`);
+      const accommodationData = res.data;
+      const formValues = {
+        title: accommodationData?.title,
+        address: accommodationData?.address,
+        description: accommodationData?.description,
+        extraInfo: accommodationData?.extraInfo,
+        checkIn: accommodationData?.checkIn,
+        checkOut: accommodationData?.checkOut,
+        guestsInfo: accommodationData?.guestsInfo,
+        price: accommodationData?.price,
+      };
+      setAddedPhotos(accommodationData?.photos);
+      setPerks(accommodationData?.perks);
+      return formValues;
+    },
+  });
+
+  const addOrEditAccommodation = async (data) => {
     const accommodationData = {
-      title: titleRef.current.value,
-      address: addressRef.current.value,
+      title: data.title,
+      address: data.address,
       photos: addedPhotos,
-      description: descriptionRef.current.value,
+      description: data.description,
       perks: perks,
-      extraInfo: extraInfoRef.current.value,
-      checkIn: checkInRef.current.value,
-      checkOut: checkOutRef.current.value,
-      guestsInfo: guestsRef.current.value,
-      price:priceRef.current.value
+      extraInfo: data.extraInfo,
+      checkIn: data.checkIn,
+      checkOut: data.checkOut,
+      guestsInfo: data.guestsInfo,
+      price: data.price,
     };
 
     id
-      ? await axios.put("/user-accommodations", {...accommodationData,id})
+      ? await axios.put("/user-accommodations", { ...accommodationData, id })
       : await axios.post("/user-accommodations", accommodationData);
     navigate("/account/accommodations");
   };
-
+  
   return (
     <div className="accommodation-form-container">
-      <ToastContainer
-        position="top-right"
-        autoClose={1000}
-        rtl={false}
-        pauseOnHover={false}
-        theme="dark"
-      />
-      <form onSubmit={addOrEditAccommodation} className="new-accommodation-form">
-        <h2>Title</h2>
+      <Toaster position="top-right" reverseOrder={true} />
+      <form
+        onSubmit={handleSubmit(addOrEditAccommodation)}
+        className="new-accommodation-form"
+      >
+        <h2>Title*</h2>
         <p className="sub-label">Title for your place</p>
         <input
-          ref={titleRef}
           type="text"
           placeholder="title, for example: My Apartment"
+          {...register("title")}
         />
+        {errors.title ? (
+          <p className="form-error">{errors.title.message}</p>
+        ) : (
+          ""
+        )}
 
-        <h2>Address</h2>
+        <h2>Address*</h2>
         <p className="sub-label">Address for this place</p>
-        <input ref={addressRef} type="text" placeholder="address" />
+        <input type="text" placeholder="address" {...register("address")} />
+        {errors.address ? (
+          <p className="form-error">{errors.address.message}</p>
+        ) : (
+          ""
+        )}
 
-        <h2>Photos</h2>
-        <p className="sub-label">more = better</p>
+        <h2>Photos*</h2>
+        <p className="sub-label">more = better (Atleast 3)</p>
         <UploadPhotos
           addedPhotos={addedPhotos}
           setAddedPhotos={setAddedPhotos}
         />
 
-        <h2>Description</h2>
+        <h2>Description*</h2>
         <p className="sub-label">Description of the place</p>
-        <textarea ref={descriptionRef} />
+        <textarea {...register("description")} />
+        {errors.description ? (
+          <p className="form-error">{errors.description.message}</p>
+        ) : (
+          ""
+        )}
 
         <h2>Perks</h2>
         <p className="sub-label">Select all the perks of your place</p>
         <Perks selected={perks} onChange={setPerks} />
 
-        <h2>Extra info</h2>
+        <h2>Extra info*</h2>
         <p className="sub-label">house rules, etc.</p>
-        <textarea ref={extraInfoRef} />
+        <textarea {...register("extraInfo")} />
+        {errors.extraInfo ? (
+          <p className="form-error">{errors.extraInfo.message}</p>
+        ) : (
+          ""
+        )}
 
         <h2>Check In & Out Times</h2>
         <p className="sub-label">Add check in and out times</p>
         <div className="check-in-out">
           <div>
-            <h3>Check in time</h3>
-            <input ref={checkInRef} type="text" placeholder="14:00" />
+            <h3>Check in time*</h3>
+            <input type="text" placeholder="14:00" {...register("checkIn")} />
+            {errors.checkIn ? (
+              <p className="form-error">{errors.checkIn.message}</p>
+            ) : (
+              ""
+            )}
           </div>
           <div>
-            <h3>Check out time</h3>
-            <input ref={checkOutRef} type="text" placeholder="8:00" />
+            <h3>Check out time*</h3>
+            <input type="text" placeholder="8:00" {...register("checkOut")} />
+            {errors.checkOut ? (
+              <p className="form-error">{errors.checkOut.message}</p>
+            ) : (
+              ""
+            )}
           </div>
           <div>
-            <h3>Max Guests</h3>
-            <input ref={guestsRef} type="number" placeholder="4" />
+            <h3>Max Guests*</h3>
+            <input type="number" placeholder="4" {...register("guestsInfo")} />
+            {errors.guestsInfo ? (
+              <p className="form-error">{errors.guestsInfo.message}</p>
+            ) : (
+              ""
+            )}
           </div>
           <div>
-            <h3>Price in USD (Per Night)</h3>
-            <input ref={priceRef} type="number" placeholder="50"/>
+            <h3>Price in USD (Per Night)*</h3>
+            <input type="number" placeholder="50" {...register("price")} />
+            {errors.price ? (
+              <p className="form-error">{errors.price.message}</p>
+            ) : (
+              ""
+            )}
           </div>
         </div>
         <Button id="save" text="Save" />

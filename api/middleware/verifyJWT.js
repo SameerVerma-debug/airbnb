@@ -16,6 +16,7 @@ const verifyJWT = (req,res,next) => {
         return res.sendStatus(403);
       }
       req.body.userId = decoded.id;
+      req.body.userEmail = decoded.email;
       next();
     }
   )
