@@ -88,7 +88,7 @@ export const BookingForm = () => {
     }
 
     const data = {
-      accommodationId: accommodation._id,
+      accommodation: accommodation._id,
       checkInDate,
       checkOutDate,
       noOfGuests,

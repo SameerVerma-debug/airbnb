@@ -1,0 +1,70 @@
+.user-bookings-container{
+  display: flex;
+  flex-direction: column;
+  gap:2rem;
+  align-items: center;
+}
+
+.user-booking{
+  display: flex;
+  gap:1rem;
+  background-color: rgba(221, 221, 221, 0.522);
+  border-radius: 0.6rem;
+  overflow: hidden;
+  vertical-align:text-top;
+  width:80vw;
+  min-width: fit-content;
+  max-width: 1000px;
+}
+
+.user-booking-info{
+  display: flex;
+  flex-direction: column;
+  gap:0.6rem;
+  padding-top:1rem;
+  padding-bottom: 1rem;
+  padding-right:1rem;
+}
+
+.user-booking-photo{
+  width:200px;
+  object-fit: cover;
+}
+
+.user-booking-title{
+  font-weight: bold;
+  font-size: larger;
+}
+
+.user-booking-nights-dates{
+  display: flex;
+  color: rgb(79, 79, 79);
+  font-size: large;
+  gap:1rem;
+}
+
+.user-booking-nights-container{
+  display: flex;
+  align-items: center;
+  gap:0.3rem;
+}
+
+.user-booking-dates{
+  display: flex;
+  align-items: center;
+  gap:0.3rem;
+}
+
+.user-booking-date{
+  display: flex;
+  align-items: center;
+  gap:0.2rem;
+}
+
+.user-booking-price{
+  font-size: large;
+  font-weight: bold;
+  display: flex;
+  gap:0.5rem;
+  align-items: center;
+}

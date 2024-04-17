@@ -1,0 +1,9 @@
+const Booking = require("../model/Booking");
+const Accommodation = require("../model/Accommodation")
+const handleGetUserBookings = async(req,res) => {
+  const {userId} = req.body;
+  const userBookings = await Booking.find({userId:userId}).populate('accommodation');
+  res.json(userBookings);
+}
+
+module.exports = handleGetUserBookings;

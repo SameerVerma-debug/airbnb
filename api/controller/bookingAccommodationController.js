@@ -5,11 +5,11 @@
 const Booking = require("../model/Booking");
 
 const handleBookingAccommodation = async (req, res) => {
-  const { accommodationId, checkInDate, checkOutDate, noOfGuests, userId, userEmail, price } =
+  const { accommodation, checkInDate, checkOutDate, noOfGuests, userId, userEmail, price } =
     req.body;
 
   const bookings = await Booking.find({
-    accommodationId,
+    accommodation,
   });
 
   const checkIn = new Date(checkInDate);
@@ -34,7 +34,7 @@ const handleBookingAccommodation = async (req, res) => {
   const newBooking = await Booking.create({
     userId,
     userEmail,
-    accommodationId,
+    accommodation,
     checkInDate: checkIn,
     checkOutDate: checkOut,
     noOfGuests,

@@ -17,4 +17,4 @@ const accommodationSchema = new Schema({
   price:Number
 })
 
-module.exports = mongoose.model('accommodation',accommodationSchema);
+module.exports = mongoose.model('Accommodation',accommodationSchema);

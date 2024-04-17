@@ -1,7 +1,12 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
-
+const Accommodation = require("../model/Accommodation")
 const bookingSchema = new Schema({
+  accommodation: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref:"Accommodation"
+  },
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
@@ -10,16 +15,13 @@ const bookingSchema = new Schema({
     type: String,
     required: true,
   },
-  accommodationId: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: true,
-  },
+  
   checkInDate: {
-    type: String,
+    type: Date,
     required: true,
   },
   checkOutDate: {
-    type: String,
+    type: Date,
     required: true,
   },
   noOfGuests: {
