@@ -7,7 +7,11 @@
 }
 
 .accommodation{
-  width:70vw;
+  width:80vw;
+}
+
+.accommodation-title-address > h1{
+  margin-bottom:0.5rem;
 }
 
 .accommodation-location{
@@ -23,7 +27,6 @@
   gap:0.4rem;
   width:100%;
   height: fit-content;
-  max-width: 65em;
   margin-top: 2rem;
   position: relative;
   cursor: pointer;
@@ -36,7 +39,7 @@
 
 .accommodation-photo{
   width: 100%;
-  aspect-ratio: 16/12;
+  aspect-ratio: 16/10;
   object-fit: cover;
 }
 
@@ -75,19 +78,21 @@
   align-items: center;
   flex-direction: column;
   padding:2rem;
+  text-align: center;
 }
 
 .all-photos{
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap:1rem;
   margin-top: 1rem;
+  padding-right:2rem;
+  padding-left:2rem;
 }
 
 .all-photos-photo{
-  width:80vw;
-  height: 75vh;
+  width:100%;
+  aspect-ratio: 16/8;
   object-fit: cover;
 }
 
@@ -106,7 +111,7 @@
 
 .accommodation-description-check-in-out-book{
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 2fr 1.5fr;
   width: 100%;
   gap:2rem;
 }
@@ -137,7 +142,6 @@
 .accommodation-book-dates{
   margin-top: 0.6rem;
   display: flex;
-  
   flex-direction: column;
   gap:0.4rem;
   border: 1px solid lightgray;
@@ -145,19 +149,21 @@
 }
 
 .book-check-in-out{
-  display: flex;
   border-bottom: 1px solid lightgray;
-  padding:0.5rem;
 }
 
 .book-input{
-  border-radius: 0;
   border: none;
   background: none;
 }
 
 .book-check-in{
-  border-right: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  padding:0.4rem;
+}
+
+.book-check-out{
+  padding:0.4rem;
 }
 
 .book-button{
@@ -179,13 +185,6 @@
   color: rgb(95, 95, 95);
 }
 
-.form-error{
-  color: red;
-  text-align: center;
-  margin-top:0.3rem;
-  margin-bottom:0.5rem;
-}
-
 .accommodation-booking-total{
   font-weight: bold;
   font-size: 1.2rem;
@@ -193,7 +192,7 @@
   margin-top:1.3rem;
 }
 
-@media screen and (max-width:800px){
+@media screen and (max-width:700px){
   .accommodation-description-check-in-out-book{
     grid-template-columns: 1fr;
     place-content: center;
@@ -214,5 +213,23 @@
   .accommodation-book-container{
     display: flex;
     justify-content: center;
+  }
+
+  .all-photos{
+    padding:0;
+  }
+
+  .accommodation-photos-container{
+    grid-template-columns: auto;
+  }
+}
+
+@media screen and (max-width:600px){
+  .see-all-photos-container{
+    padding:1rem;
+  }
+  .all-photos-photo{
+    width: 100%;
+    aspect-ratio: 16/11;
   }
 }

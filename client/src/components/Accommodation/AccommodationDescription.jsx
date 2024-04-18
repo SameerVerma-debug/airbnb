@@ -10,11 +10,11 @@ export const AccommodationDescription = () => {
         {accommodation.description}
       </div>
       <div className="accommodation-check-in-out">
-        Check-in: {accommodation.checkIn}
+        <h3>Check-in: {accommodation.checkIn}</h3>
         <br />
-        Check-out: {accommodation.checkOut}
+        <h3>Check-out: {accommodation.checkOut}</h3>
         <br />
-        Max-Guests: {accommodation.guestsInfo}
+        <h3>Max-Guests: {accommodation.guestsInfo}</h3>
       </div>
     </div>
   );

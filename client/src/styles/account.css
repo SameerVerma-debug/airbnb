@@ -33,3 +33,15 @@
   gap:1rem;
   margin-bottom: 2rem;
 }
+
+@media screen and (max-width:550px){
+
+  .navbar{
+    display: flex;
+    flex-direction: column;
+    
+  }
+  .navlink{
+    justify-content: center;
+  }
+}

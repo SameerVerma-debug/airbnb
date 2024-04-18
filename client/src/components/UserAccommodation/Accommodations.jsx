@@ -16,7 +16,7 @@ export const Accommodations = () => {
       <Link style={{ textDecoration: "none" }} to="/account/accommodations/new">
         <button className="primary" id="add-new-user-accommodation">
           <FaPlus />
-          Add New Accommodation
+          <span >Add New Accommodation</span>
         </button>
       </Link>
       <UserAccommodations accommodations={accommodations}/>

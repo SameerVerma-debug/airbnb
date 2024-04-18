@@ -11,7 +11,7 @@ const clearOldBookings = require("./utils/clearOldBookings");
 
 connectDB();
 
-cron.schedule("20 3 * * *",clearOldBookings)
+cron.schedule("0 0 * * *",clearOldBookings)
 
 app.use(
   cors({
@@ -20,9 +20,10 @@ app.use(
   })
 );
 
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
-app.use(express.urlencoded({ extended: true }));
+
 
 app.use("/register", require("./routes/auth/register"));
 app.use("/login", require("./routes/auth/login"));

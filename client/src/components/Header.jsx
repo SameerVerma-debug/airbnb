@@ -16,22 +16,20 @@ export const Header = () => {
     <div className="header">
       <Link to="/" className="logo">
         <TbBrandAirbnb size={40} color="rgba(250, 56, 56, 0.958)" />
-        <p>airbnb</p>
+        <p className="hide-on-mobile">Booking App</p>
       </Link>
 
       <div className="search">
-        <div className="anywhere">Anywhere</div>
-        <div className="anyweek">Any Week</div>
-        <div>Add Guests</div>
+        <input className="search-input" type="text" placeholder="Search Location"/>
         <button className="search-button">
-          <IoIosSearch size={16} color="white" />
+          <IoIosSearch size={20} color="white" />
         </button>
       </div>
 
       <Link to={user ? "/account/profile" : "/login"} className="profile">
         <RxHamburgerMenu size={18} />
         <FaCircleUser size={25} opacity={0.5} />
-        {user && <p>{user.name}</p>}
+        {user && <p className="hide-on-mobile">{user.name}</p>}
       </Link>
     </div>
   );

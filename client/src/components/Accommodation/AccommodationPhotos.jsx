@@ -18,7 +18,7 @@ export const AccommodationPhotos = () => {
         </div>
       )}
 
-      <div className="accommodation-photos-container2">
+      <div className="accommodation-photos-container2 hide-on-mobile">
         {accommodation?.photos[1] && (
           <div
             className="accommodation-photo-container"
@@ -26,7 +26,7 @@ export const AccommodationPhotos = () => {
           >
             <img
               src={`http://localhost:4000/uploads/${accommodation.photos[1]}`}
-              className="accommodation-photo"
+              className="accommodation-photo hide-on-mobile"
             />
           </div>
         )}
@@ -37,7 +37,7 @@ export const AccommodationPhotos = () => {
           >
             <img
               src={`http://localhost:4000/uploads/${accommodation.photos[2]}`}
-              className="accommodation-photo last-photo"
+              className="accommodation-photo last-photo hide-on-mobile"
             />
           </div>
         )}

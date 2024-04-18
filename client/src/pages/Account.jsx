@@ -20,7 +20,7 @@ export const Account = () => {
   return (
     <div className="account">
       <nav className="navbar">
-      <NavLink className="navlink" to="/account/profile"><CgProfile/>Profile</NavLink>
+      <NavLink className="navlink" to="/account/profile"><CgProfile/><span>Profile</span></NavLink>
       <NavLink className="navlink" to="/account/bookings"><FaAddressBook/>Bookings</NavLink>
       <NavLink className="navlink" to="/account/accommodations"><FaBuildingColumns/>Accommodations</NavLink>
       </nav>

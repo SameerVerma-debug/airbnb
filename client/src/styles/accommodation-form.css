@@ -18,9 +18,9 @@
   margin-right: auto;
   margin-top: 0.5rem;
   margin-bottom:0.5rem;
-  width:20vw;
+  width:30vw;
   min-width: fit-content;
-  max-width:200px;
+  max-width:400px;
 }
 
 .upload-photo{
@@ -57,7 +57,7 @@
 
 .check-in-out{
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto;
   gap:0.8rem;
   padding-top:0.5rem;
 }
@@ -72,15 +72,16 @@
 }
 
 .uploadbutton-photos{
-  display: flex;
+  display: grid;
   gap:1rem;
   margin-top:1rem;
 }
 
 .form-photos-container{
-  display: flex;
-  gap:0.4rem;
-  flex-wrap: wrap;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+  gap:0.7rem;
 }
 
 .form-photo-container{
@@ -106,9 +107,10 @@
 }
 
 .form-photo{
-  width:8em;
-  height: 10em;
+  width:100%;
+  height: 100%;
   border-radius: 0.4rem;
+  object-fit: cover;
 }
 
 h2{
@@ -127,7 +129,7 @@ input[type="checkbox"]{
   width: fit-content;
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 600px){
   .perks{
     grid-template-columns: auto auto;
   }
@@ -144,7 +146,9 @@ input[type="checkbox"]{
     grid-template-columns: auto;
   }
   .add-photo-with-link{
-    margin-left: 0;
-    margin-right: auto;
+    width:50vw;
+  }
+  .form-photos-container{
+    grid-template-columns: repeat(auto-fit,minmax(120px,1fr));
   }
 }

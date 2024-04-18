@@ -18,6 +18,7 @@
   gap:0.8rem;
   width: 40vw;
   max-width: 500px;
+  width: 80%;
 }
 
 input{
@@ -57,4 +58,10 @@ input{
   color: var(--primary-color);
   text-align: center;
   font-weight: bold;
+}
+
+.form-error{
+  color: red;
+  font-size: 1.07rem;
+  padding-left:0.4rem;
 }

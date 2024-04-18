@@ -3,9 +3,13 @@ import { useContext, useRef, useState } from "react";
 import axios from "axios";
 import { AccommodationContext } from "../../pages/Accommodation";
 import { toast } from "react-hot-toast";
+import { UserContext } from "../../context/userContext";
+import { useNavigate } from "react-router-dom";
 
 export const BookingForm = () => {
   const { accommodation } = useContext(AccommodationContext);
+  const {user} = useContext(UserContext);
+  const navigate = useNavigate();
   const [numberOfNights, setNumberOfNights] = useState(0);
   const [bookingErrors, setBookingErrors] = useState({
     date: false,
@@ -76,6 +80,10 @@ export const BookingForm = () => {
     const checkOutDate = new Date(checkOutDateRef.current.value);
     const noOfGuests = guestsRef.current.value;
 
+    if(!user){
+      navigate("/login");
+    }
+
     if (
       !validateBookingForm(
         checkInDate,
@@ -135,7 +143,7 @@ export const BookingForm = () => {
                 type="date"
               />
             </div>
-            <div className="accommodation-book-date">
+            <div className="book-check-out accommodation-book-date">
               <label>Check Out:</label>
               <input
                 onChange={calculateBookingPrice}

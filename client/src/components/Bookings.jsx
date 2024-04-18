@@ -15,7 +15,7 @@ export const Bookings = () => {
       {userBookings?.length > 0 &&
         userBookings.map((booking) => {
           return (
-            <div className="user-booking">
+            <div className="user-booking" key={booking._id}>
               {booking.accommodation.photos.length > 0 && (
                 <img
                   className="user-booking-photo"
