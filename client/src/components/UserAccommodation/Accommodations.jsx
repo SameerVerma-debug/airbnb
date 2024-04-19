@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 import "../../styles/user-accommodation.css";
 import { useFetch } from "../../hooks/useFetch";
 import { UserAccommodations } from "./UserAccommodations";
+import { Loading } from "../Loading";
 export const Accommodations = () => {
 
-  const [accommodations,loading,error] = useFetch({path:"/user-accommodations",dependencies:[]});
+  const [accommodations,loading,setAccommodations] = useFetch({path:"/user-accommodations",dependencies:[]});
   
   if(loading){
-    return <h1>Loading...</h1>
+    return <Loading/>
   }
 
   return (

@@ -28,5 +28,5 @@ export const useFetch = ({path,dependencies}) => {
     }
   },dependencies)
 
-  return [data,loading,error];
+  return [data,loading,setData,error];
 }

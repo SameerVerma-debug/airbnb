@@ -1,31 +1,23 @@
-import { Link } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 import "../styles/home.css";
+import { HomeAccommodation } from "../components/HomeAccommodation";
+import { Toaster } from "react-hot-toast";
+import { Loading } from "../components/Loading";
 export const Home = () => {
-  const [accommodations, loading, error] = useFetch({
+  const [accommodations, loading] = useFetch({
     path: "/accommodations",
     dependencies: [],
   });
+
+  if(loading){
+    return <Loading/>
+  }
   return (
     <div className="home">
       {accommodations &&
         accommodations.map((accommodation) => {
           return (
-            <Link to={`/accommodation/${accommodation._id}`} className="home-accommodation" key={accommodation._id}>
-              <div className="home-accommodation-image-container">
-                <img
-                className="home-accommodation-image"
-                  src={
-                    "http://localhost:4000/uploads/" + accommodation?.photos[0]
-                  }
-                />
-              </div>
-              <p className="home-accommodation-address">{accommodation.address}</p>
-              <p className="home-accommodation-title">{accommodation.title}</p>
-              <p className="home-accommodation-price">
-                <span>${accommodation.price}</span> per night
-              </p>
-            </Link>
+            <HomeAccommodation key={accommodation._id} accommodation={accommodation}/>
           );
         })}
         

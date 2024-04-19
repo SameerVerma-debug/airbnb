@@ -41,10 +41,10 @@ export const Login = () => {
       });
       setUser(res.data);
       setUserFetched(true);
-      alert("Login Successful! Redirecting to Home page");
-      navigate("/");
+      alert("Login Successful Redirecting to Home Page")
+      navigate("/")
     } catch (err) {
-      alert("Email or Password is incorrect");
+      alert("Email or password is not correct")
     }
   };
 

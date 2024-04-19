@@ -9,6 +9,7 @@ import { AccommodationTitle } from "../components/Accommodation/AccommodationTit
 import { AccommodationDescription } from "../components/Accommodation/AccommodationDescription";
 import { AccommodationExtraInfo } from "../components/Accommodation/AccommodationExtraInfo";
 import { Toaster } from "react-hot-toast";
+import { Loading } from "../components/Loading";
 
 export const AccommodationContext = createContext();
 
@@ -16,7 +17,7 @@ export const Accommodation = () => {
   const { id } = useParams();
   const [seeAllPhotos, setSeeAllPhotos] = useState(false);
 
-  const [accommodation] = useFetch({
+  const [accommodation,loading] = useFetch({
     path: `/accommodations/${id}`,
     dependencies: [id],
   });
@@ -28,6 +29,10 @@ export const Accommodation = () => {
         setDataVisibility={setSeeAllPhotos}
       />
     );
+  }
+
+  if(loading){
+    return <Loading/>
   }
 
   return (

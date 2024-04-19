@@ -35,9 +35,11 @@ export const AccommodationForm = () => {
     checkOut: yup.string().required("Check out timing is required"),
     guestsInfo: yup
       .number("Only numeric value")
+      .min(1,"Max Guests should be atleast 1")
       .required("Max Guests is required"),
     price: yup
       .number("Only numeric value")
+      .min(1,"Price should be greater than 0")
       .required("Price is required"),
   });
 
@@ -106,7 +108,7 @@ export const AccommodationForm = () => {
         onSubmit={handleSubmit(addOrEditAccommodation)}
         className="new-accommodation-form"
       >
-        <h2>Title*</h2>
+        <h2 className="accommodation-form-h2">Title*</h2>
         <p className="sub-label">Title for your place</p>
         <input
           type="text"
@@ -119,7 +121,7 @@ export const AccommodationForm = () => {
           ""
         )}
 
-        <h2>Address*</h2>
+        <h2 className="accommodation-form-h2">Address*</h2>
         <p className="sub-label">Address for this place</p>
         <input type="text" placeholder="address" {...register("address")} />
         {errors.address ? (
@@ -128,14 +130,14 @@ export const AccommodationForm = () => {
           ""
         )}
 
-        <h2>Photos*</h2>
+        <h2 className="accommodation-form-h2">Photos*</h2>
         <p className="sub-label">more = better (Atleast 3)</p>
         <UploadPhotos
           addedPhotos={addedPhotos}
           setAddedPhotos={setAddedPhotos}
         />
 
-        <h2>Description*</h2>
+        <h2 className="accommodation-form-h2">Description*</h2>
         <p className="sub-label">Description of the place</p>
         <textarea {...register("description")} />
         {errors.description ? (
@@ -144,11 +146,11 @@ export const AccommodationForm = () => {
           ""
         )}
 
-        <h2>Perks</h2>
+        <h2 className="accommodation-form-h2">Perks</h2>
         <p className="sub-label">Select all the perks of your place</p>
         <Perks selected={perks} onChange={setPerks} />
 
-        <h2>Extra info*</h2>
+        <h2 className="accommodation-form-h2">Extra info*</h2>
         <p className="sub-label">house rules, etc.</p>
         <textarea {...register("extraInfo")} />
         {errors.extraInfo ? (
@@ -157,7 +159,7 @@ export const AccommodationForm = () => {
           ""
         )}
 
-        <h2>Check In & Out Times</h2>
+        <h2 className="accommodation-form-h2">Check In & Out Times</h2>
         <p className="sub-label">Add check in and out times</p>
         <div className="check-in-out">
           <div>

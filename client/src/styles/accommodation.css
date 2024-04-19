@@ -70,6 +70,7 @@
 .see-all-photos-container{
   top: 0;
   position: absolute;
+  z-index:2000;
   min-width: 100vw;
   min-height: 100vh;
   background-color: black;
@@ -111,7 +112,7 @@
 
 .accommodation-description-check-in-out-book{
   display: grid;
-  grid-template-columns: 2fr 1.5fr;
+  grid-template-columns: 2fr 1.2fr;
   width: 100%;
   gap:2rem;
 }
@@ -128,7 +129,6 @@
   height: fit-content;
   width: 100%;
   padding:1rem;
-  padding-top:0;
 }
 
 .accommodation-check-in-out{

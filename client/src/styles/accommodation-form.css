@@ -113,8 +113,8 @@
   object-fit: cover;
 }
 
-h2{
-  margin-top:2rem;
+.accommodation-form-h2{
+  margin-top: 2rem;
 }
 
 textarea{

@@ -1,8 +1,8 @@
 .user-bookings-container{
   display: flex;
   flex-direction: column;
-  gap:2rem;
   align-items: center;
+  gap:2rem;
 }
 
 .user-booking{
@@ -68,7 +68,74 @@
   align-items: center;
 }
 
-@media screen and (max-width:700px){
+.user-booking-cancel{
+  width:fit-content;
+}
+
+.cancel-booking-modal{
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%)translateY(-50%);
+  padding:2rem;
+  border: 3px solid rgb(149, 149, 149);
+  border-radius: 1.3rem;
+  text-align: center;
+  width:fit-content;
+}
+
+.cancel-booking-modal::backdrop {
+  background-color: black;
+  opacity: 0.5;
+}
+
+.cancel-booking-title{
+  margin-top: 0.5rem;
+}
+
+.cancel-booking-dates{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top:1rem;
+  margin-bottom:1rem;
+}
+
+.cancel-booking-buttons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap:0.7rem;
+}
+.cancel-booking-button{
+  width:100%;
+  font-size: 1rem;
+}
+
+.no-bookings{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap:1rem;
+}
+
+.explore-places{
+  padding:1.5rem;
+  font-weight: bold;
+  font-size: larger;
+  border-radius: 0.3rem;
+}
+
+.explore-places:hover{
+  transform: scale(1.02);
+}
+
+.explore-places:active{
+  transform: scale(0.98);
+}
+
+@media screen and (max-width:550px){
   .user-booking{
     flex-direction: column;
   }
@@ -84,6 +151,10 @@
     padding-left:1rem;
     padding-right:1rem;
   }
+
+  .cancel-booking-modal{
+    width:70vw;
+  }
 }
 
 @media screen and (max-width:400px){
@@ -93,5 +164,15 @@
 
   .user-booking-date{
     font-size: smaller;
+  }
+
+  .cancel-booking-modal{
+    width:80vw;
+  }
+
+  .explore-places{
+    padding:0.8rem;
+    font-size: medium;
+    font-weight: 100;
   }
 }
