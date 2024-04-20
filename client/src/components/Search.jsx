@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { AutoComplete } from "./AutoComplete";
 import "../styles/search.css";
 import axios from "axios";
+import { debounce } from "../utils/debounce";
 
 export const Search = () => {
   const searchRef = useRef(null);
@@ -41,7 +42,7 @@ export const Search = () => {
             type="text"
             placeholder="Search Location"
             ref={searchRef}
-            onChange={handleAutoComplete}
+            onChange={debounce(handleAutoComplete, 300)}
           />
           <button className="search-button">
             <IoIosSearch size={20} color="white" />
