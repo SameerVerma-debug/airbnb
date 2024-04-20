@@ -20,7 +20,7 @@ export const UserAccommodationPage = () => {
           <span >Add New Accommodation</span>
         </button>
       </Link>
-      <UserAccommodations accommodations={accommodations}/>
+      {accommodations && <UserAccommodations accommodations={accommodations}/>}
     </div>
   );
 };

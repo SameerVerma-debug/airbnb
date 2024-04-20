@@ -4,7 +4,7 @@ import { API_URL } from "../../../public/API_URL";
 export const UserAccommodations = ({accommodations}) => {
   return (
     <div className="user-accommodations">
-      {accommodations.length > 0 &&
+      {accommodations?.length > 0 &&
         accommodations.map((accommodation) => {
           return (
             <div className="user-accommodation" key={accommodation._id}>
