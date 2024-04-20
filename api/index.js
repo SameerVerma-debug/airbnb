@@ -8,6 +8,7 @@ const connectDB = require("./config/connectdb");
 const path = require("path");
 const cron = require("node-cron");
 const clearOldBookings = require("./utils/clearOldBookings");
+const CLIENT_URL = "http://localhost:5173"
 
 connectDB();
 
@@ -16,7 +17,7 @@ cron.schedule("0 0 * * *", clearOldBookings);
 app.use(
   cors({
     credentials: true,
-    origin: "http://localhost:5173",
+    origin: CLIENT_URL,
   })
 );
 

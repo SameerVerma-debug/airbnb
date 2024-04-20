@@ -1,8 +1,8 @@
-import { differenceInCalendarDays, format } from "date-fns";
+import { differenceInCalendarDays } from "date-fns";
 import { BsCreditCardFill } from "react-icons/bs";
 import { MdOutlineNightsStay } from "react-icons/md";
 import { BookingDates } from "./BookingDates";
-import { Link } from "react-router-dom";
+import { API_URL } from "../../public/API_URL";
 
 export const Booking = ({ booking, confirmCancel }) => {
   return (
@@ -10,7 +10,7 @@ export const Booking = ({ booking, confirmCancel }) => {
       {booking.accommodation.photos.length > 0 && (
         <img
           className="user-booking-photo"
-          src={`http://localhost:4000/uploads/${booking.accommodation.photos[0]}`}
+          src={`${API_URL}/uploads/${booking.accommodation.photos[0]}`}
         />
       )}
       <div className="user-booking-info">

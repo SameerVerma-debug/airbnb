@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { BsFillGridFill } from "react-icons/bs";
 import { AccommodationContext } from "../../pages/SingleAccommodation";
+import { API_URL } from "../../../public/API_URL";
 
 export const AccommodationPhotos = () => {
   const { accommodation, setSeeAllPhotos } = useContext(AccommodationContext);
@@ -12,7 +13,7 @@ export const AccommodationPhotos = () => {
           onClick={() => setSeeAllPhotos(true)}
         >
           <img
-            src={`http://localhost:4000/uploads/${accommodation.photos[0]}`}
+            src={`${API_URL}/uploads/${accommodation.photos[0]}`}
             className="accommodation-photo index-photo"
           />
         </div>
@@ -25,7 +26,7 @@ export const AccommodationPhotos = () => {
             onClick={() => setSeeAllPhotos(true)}
           >
             <img
-              src={`http://localhost:4000/uploads/${accommodation.photos[1]}`}
+              src={`${API_URL}/uploads/${accommodation.photos[1]}`}
               className="accommodation-photo hide-on-tablet"
             />
           </div>
@@ -36,7 +37,7 @@ export const AccommodationPhotos = () => {
             onClick={() => setSeeAllPhotos(true)}
           >
             <img
-              src={`http://localhost:4000/uploads/${accommodation.photos[2]}`}
+              src={`${API_URL}/uploads/${accommodation.photos[2]}`}
               className="accommodation-photo last-photo hide-on-tablet"
             />
           </div>

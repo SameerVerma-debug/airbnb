@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { API_URL } from "../../../public/API_URL";
 
 export const UserAccommodations = ({accommodations}) => {
   return (
@@ -12,7 +13,7 @@ export const UserAccommodations = ({accommodations}) => {
                   {accommodation.photos.length > 0 && (
                     <img
                       className="user-accommodation-image"
-                      src={`http://localhost:4000/uploads/${accommodation.photos[0]}`}
+                      src={`${API_URL}/uploads/${accommodation.photos[0]}`}
                       alt=""
                     />
                   )}

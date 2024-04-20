@@ -4,7 +4,7 @@ import "../../styles/user-accommodation.css";
 import { useFetch } from "../../hooks/useFetch";
 import { UserAccommodations } from "./UserAccommodations";
 import { Loading } from "../Loading";
-export const Accommodations = () => {
+export const UserAccommodationPage = () => {
 
   const [accommodations,loading] = useFetch({path:"/user-accommodations",dependencies:[]});
   

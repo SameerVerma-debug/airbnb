@@ -1,5 +1,5 @@
-export const NoSearchResults = () => {
+export const NoSearchResults = ({location}) => {
   return (
-    <h1></h1>
+    <h3>No Accommodations found</h3>
   )
 }
