@@ -18,7 +18,7 @@ export const SearchResults = () => {
   return (
     <div className="search-results">
       <h2>Showing Results for: {searchQuery}</h2>
-      {foundAccommodations.length > 0 ? (
+      {foundAccommodations?.length > 0 ? (
         <Accommodations accommodations={foundAccommodations} />
       ) : (
         <NoSearchResults />

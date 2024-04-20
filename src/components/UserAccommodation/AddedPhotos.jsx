@@ -22,7 +22,7 @@ export const AddedPhotos = ({ addedPhotos,setAddedPhotos }) => {
 
   return (
     <div className="form-photos-container">
-      {addedPhotos.length > 0 &&
+      {addedPhotos?.length > 0 &&
         addedPhotos.map((link,index) => {
           return (
             <div key={link} className="form-photo-container">

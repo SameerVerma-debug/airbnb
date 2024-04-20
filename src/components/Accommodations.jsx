@@ -7,7 +7,7 @@ export const Accommodations = ({ accommodations }) => {
         accommodations.map((accommodation) => {
           return (
             <Accommodation
-              key={accommodation._id}
+              key={accommodation?._id}
               accommodation={accommodation}
             />
           );

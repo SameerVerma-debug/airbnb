@@ -58,7 +58,7 @@ export const Login = () => {
             id="email"
             placeholder="your@email.com"
           />
-          {errors.email && <p className="form-error">{errors.email.message}</p>}
+          {errors?.email && <p className="form-error">{errors?.email?.message}</p>}
         </div>
         <div>
         <div className="pass">
@@ -80,7 +80,7 @@ export const Login = () => {
             )}
           </button>
         </div>
-        {errors.password && <p className="form-error">{errors.password.message}</p>}
+        {errors?.password && <p className="form-error">{errors?.password?.message}</p>}
         </div>
         <Button id="submit" text="Login" />
       </form>

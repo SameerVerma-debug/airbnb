@@ -17,12 +17,12 @@ export const Bookings = () => {
   });
 
   const confirmCancelBooking = (booking) => {
-    cancelBookingModalRef.current.showModal();
+    cancelBookingModalRef.current?.showModal();
     setBookingToCancel(booking);
   };
 
   const dontCancelBooking = () => {
-    cancelBookingModalRef.current.close();
+    cancelBookingModalRef.current?.close();
   };
 
   const cancelBooking = async() => {

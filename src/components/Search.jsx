@@ -15,7 +15,7 @@ export const Search = () => {
   const handleAutoComplete = async () => {
     setAutoCompleteDisplay(true);
     const res =
-      searchRef.current.value &&
+      searchRef.current?.value &&
       (await axios.get(`/autocomplete/${searchRef.current.value}`));
     setAutoCompleteValues(res.data);
   };
@@ -23,12 +23,12 @@ export const Search = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     setAutoCompleteDisplay(false);
-    searchRef.current.value && navigate(`/search/${searchRef.current.value}`);
-    searchRef.current.value = "";
+    searchRef.current?.value && navigate(`/search/${searchRef.current.value}`);
+    searchRef.current?.value = "";
   };
 
   const handleAutoCompleteClick = (value) => {
-    searchRef.current.value = value;
+    searchRef.current?.value = value;
     setAutoCompleteDisplay(false);
     navigate(`/search/${value}`);
   };

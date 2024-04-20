@@ -10,7 +10,7 @@ export const UploadPhotos = ({ addedPhotos, setAddedPhotos }) => {
     let res;
     try {
       res = await axios.post("/upload-by-link", {
-        link: photoLinkRef.current.value,
+        link: photoLinkRef.current?.value,
       });
       setAddedPhotos((prev) => {
         return [...prev, res.data];
@@ -18,7 +18,7 @@ export const UploadPhotos = ({ addedPhotos, setAddedPhotos }) => {
     } catch (err) {
       toast.error("Image Not uploaded",{duration:1500});
     } finally {
-      photoLinkRef.current.value = "";
+      photoLinkRef.current?.value = "";
     }
   };
 

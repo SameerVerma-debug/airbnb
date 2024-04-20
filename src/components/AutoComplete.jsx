@@ -7,7 +7,7 @@ export const AutoComplete = ({ values, handleClick, display, setDisplay }) => {
   useOutsideClick(autoCompleteRef,setDisplay);
   return (
     <div ref={autoCompleteRef} className={display ? "autocomplete" : "hidden"}>
-      {values.map((value) => {
+      {values && values.map((value) => {
         return (
           <button
             onClick={() => handleClick(value.address)}

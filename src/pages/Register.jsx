@@ -57,7 +57,7 @@ export const Register = () => {
             id="name"
             placeholder="Sameer Verma"
           />
-          {errors.name && <p className="form-error">{errors.name.message}</p>}
+          {errors?.name && <p className="form-error">{errors?.name?.message}</p>}
         </div>
         <div>
           <input
@@ -66,7 +66,7 @@ export const Register = () => {
             id="email"
             placeholder="your@email.com"
           />
-          {errors.email && <p className="form-error">{errors.email.message}</p>}
+          {errors?.email && <p className="form-error">{errors?.email?.message}</p>}
         </div>
         <div>
           <div className="pass">
@@ -88,8 +88,8 @@ export const Register = () => {
               )}
             </button>
           </div>
-          {errors.password && (
-            <p className="form-error">{errors.password.message}</p>
+          {errors?.password && (
+            <p className="form-error">{errors?.password?.message}</p>
           )}
         </div>
         <Button id="submit" text="Register" />

@@ -15,7 +15,7 @@ export const Home = () => {
   return (
     <div className="home">
       <h2>Home Page</h2>
-      <Accommodations accommodations={accommodations}/>
+      {accommodations && <Accommodations accommodations={accommodations}/>}
     </div>
   );
 };

@@ -129,7 +129,7 @@ export const AccommodationForm = () => {
           placeholder="title, for example: My Apartment"
           {...register("title")}
         />
-        {errors.title ? (
+        {errors?.title ? (
           <p className="form-error">{errors.title.message}</p>
         ) : (
           ""
@@ -138,7 +138,7 @@ export const AccommodationForm = () => {
         <h2 className="accommodation-form-h2">Address*</h2>
         <p className="sub-label">Address for this place</p>
         <input type="text" placeholder="address" {...register("address")} />
-        {errors.address ? (
+        {errors?.address ? (
           <p className="form-error">{errors.address.message}</p>
         ) : (
           ""
@@ -155,7 +155,7 @@ export const AccommodationForm = () => {
         <h2 className="accommodation-form-h2">Description*</h2>
         <p className="sub-label">Description of the place</p>
         <textarea {...register("description")} />
-        {errors.description ? (
+        {errors?.description ? (
           <p className="form-error">{errors.description.message}</p>
         ) : (
           ""
@@ -168,7 +168,7 @@ export const AccommodationForm = () => {
         <h2 className="accommodation-form-h2">Extra info*</h2>
         <p className="sub-label">house rules, etc.</p>
         <textarea {...register("extraInfo")} />
-        {errors.extraInfo ? (
+        {errors?.extraInfo ? (
           <p className="form-error">{errors.extraInfo.message}</p>
         ) : (
           ""
@@ -180,7 +180,7 @@ export const AccommodationForm = () => {
           <div>
             <h3>Check in time*</h3>
             <input type="text" placeholder="14:00" {...register("checkIn")} />
-            {errors.checkIn ? (
+            {errors?.checkIn ? (
               <p className="form-error">{errors.checkIn.message}</p>
             ) : (
               ""
@@ -189,7 +189,7 @@ export const AccommodationForm = () => {
           <div>
             <h3>Check out time*</h3>
             <input type="text" placeholder="8:00" {...register("checkOut")} />
-            {errors.checkOut ? (
+            {errors?.checkOut ? (
               <p className="form-error">{errors.checkOut.message}</p>
             ) : (
               ""
@@ -198,7 +198,7 @@ export const AccommodationForm = () => {
           <div>
             <h3>Max Guests*</h3>
             <input type="number" placeholder="4" {...register("guestsInfo")} />
-            {errors.guestsInfo ? (
+            {errors?.guestsInfo ? (
               <p className="form-error">{errors.guestsInfo.message}</p>
             ) : (
               ""
@@ -207,7 +207,7 @@ export const AccommodationForm = () => {
           <div>
             <h3>Price in USD (Per Night)*</h3>
             <input type="number" placeholder="50" {...register("price")} />
-            {errors.price ? (
+            {errors?.price ? (
               <p className="form-error">{errors.price.message}</p>
             ) : (
               ""
