@@ -31,16 +31,21 @@ const handleBookingAccommodation = async (req, res) => {
     }
   }
 
-  const newBooking = await Booking.create({
-    userId,
-    userEmail,
-    accommodation,
-    checkInDate: checkIn,
-    checkOutDate: checkOut,
-    noOfGuests,
-    price
-  });
-  res.json(newBooking);
+  try{
+    const newBooking = await Booking.create({
+      userId,
+      userEmail,
+      accommodation,
+      checkInDate: checkIn,
+      checkOutDate: checkOut,
+      noOfGuests,
+      price
+    });
+    res.json(newBooking);
+  }
+  catch(err){
+    res.sendStatus(500);
+  }
 };
 
 module.exports = handleBookingAccommodation;

@@ -16,21 +16,26 @@ const handleAddAccommodation = async (req, res) => {
     price
   } = req.body;
 
-  await Accommodation.create({
-    owner: userId,
-    title,
-    address,
-    photos,
-    description,
-    perks,
-    extraInfo,
-    checkIn,
-    checkOut,
-    guestsInfo,
-    price
-  });
-
-  res.sendStatus(201);
+  try{
+    await Accommodation.create({
+      owner: userId,
+      title,
+      address,
+      photos,
+      description,
+      perks,
+      extraInfo,
+      checkIn,
+      checkOut,
+      guestsInfo,
+      price
+    });
+  
+    res.sendStatus(201);
+  }
+  catch(err){
+    res.sendStatus(500);
+  }
 };
 
 module.exports = handleAddAccommodation;

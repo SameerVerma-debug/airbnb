@@ -4,7 +4,7 @@
   align-items: center;
   padding:1rem;
   border-bottom:1px solid lightgray;
-  gap:1rem;
+  gap:2rem;
   position: fixed;
   z-index: 1000;
   background-color: white;
@@ -26,34 +26,7 @@
   font-size: xx-large;
 }
 
-.search{
-  position: relative;
-  left: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-self: center;
-  gap:0.7rem;
-  border: 1px solid lightgray;
-  padding:0.4rem;
-  padding-left:0.9rem;
-  padding-right:0.9rem;
-  border-radius: 1.3rem;
-  box-shadow: 1px 1px 3px 2px rgba(0,0,0,0.08);
-  font-size: 1.12rem;
-}
 
-
-.search-button{
-  background-color: var(--primary-color);
-  border: none;
-  border-radius: 100%;
-  padding:0.4rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
 
 .profile{
   display: flex;
@@ -72,4 +45,10 @@
   border: none;
   flex: 1;
   min-width: none;
+}
+
+@media screen and (max-width:600px){
+  .header{
+    gap:1.2rem;
+  }
 }

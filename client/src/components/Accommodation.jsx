@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export const HomeAccommodation = ({accommodation}) => {
+export const Accommodation = ({accommodation}) => {
   return (
     <Link
       to={`/accommodation/${accommodation._id}`}

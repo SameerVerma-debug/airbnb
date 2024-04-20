@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top:5em;
 }
 
 .accommodation{
@@ -111,6 +112,7 @@
 }
 
 .accommodation-description-check-in-out-book{
+  margin-top:1rem;
   display: grid;
   grid-template-columns: 2fr 1.2fr;
   width: 100%;

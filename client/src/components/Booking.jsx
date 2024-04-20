@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 export const Booking = ({ booking, confirmCancel }) => {
   return (
-    <Link to={`/accommodation/${booking.accommodation._id}`} style={{color:"black",textDecoration:"none"}} className="user-booking" key={booking._id}>
+    <div className="user-booking" key={booking._id}>
       {booking.accommodation.photos.length > 0 && (
         <img
           className="user-booking-photo"
@@ -46,6 +46,6 @@ export const Booking = ({ booking, confirmCancel }) => {
           Cancel Booking
         </button>
       </div>
-    </Link>
+    </div>
   );
 };

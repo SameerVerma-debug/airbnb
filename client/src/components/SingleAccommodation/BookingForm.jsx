@@ -1,7 +1,7 @@
 import { differenceInCalendarDays } from "date-fns";
 import { useContext, useRef, useState } from "react";
 import axios from "axios";
-import { AccommodationContext } from "../../pages/Accommodation";
+import { AccommodationContext } from "../../pages/SingleAccommodation";
 import { toast } from "react-hot-toast";
 import { UserContext } from "../../context/userContext";
 import { useNavigate } from "react-router-dom";

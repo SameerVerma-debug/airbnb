@@ -1,6 +1,6 @@
 import { Button } from "../Button";
 import { Perks } from "./Perks";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { UploadPhotos } from "./UploadPhotos";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
@@ -15,6 +15,14 @@ export const AccommodationForm = () => {
   const [addedPhotos, setAddedPhotos] = useState([]);
   const navigate = useNavigate();
   const { id } = useParams();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth"
+    });
+  },[])
 
   const schema = yup.object().shape({
     title: yup

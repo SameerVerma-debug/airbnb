@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AccommodationContext } from "../../pages/Accommodation";
+import { AccommodationContext } from "../../pages/SingleAccommodation";
 
 export const AccommodationDescription = () => {
   const { accommodation } = useContext(AccommodationContext);

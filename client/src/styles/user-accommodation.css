@@ -28,17 +28,26 @@
   border-radius:0.7rem;
 }
 
+.user-accommodation-image-container{
+  overflow: hidden;
+}
 .user-accommodation-image{
   width: 100%;
   object-fit: cover;
   aspect-ratio: 16/9;
   margin-bottom:1rem;
+  transition: all 0.2s;
+}
+
+.user-accommodation-image:hover{
+  transform: scale(1.05);
 }
 
 .user-accommodation-title{
   font-weight: bold;
   font-size: large;
   margin-bottom: 0.4rem;
+  
 }
 
 .user-accommodation-image-title-address{
@@ -56,9 +65,15 @@
   cursor: pointer;
 }
 
-@media screen and (max-width:300px){
+@media screen and (max-width:690px){
+  .user-accommodations{
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+  }
+}
+
+/* @media screen and (max-width:300px){
   .user-accommodations{
     grid-template-columns: 230px;
     
   }
-}
+} */

@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { UserContext } from "../context/userContext"
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
@@ -9,6 +9,13 @@ import "../styles/account.css";
 export const Account = () => {
   const {user,userFetched} = useContext(UserContext);
   const navigate = useNavigate();
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth"
+    });
+  },[])
   if(!userFetched){
     return <h1>Loading...</h1>
   }

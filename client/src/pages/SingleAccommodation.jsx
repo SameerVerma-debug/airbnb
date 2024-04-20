@@ -2,18 +2,18 @@ import { useParams } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 import "../styles/accommodation.css";
 import { createContext, useState } from "react";
-import { AllAccommodationPhotos } from "../components/Accommodation/AllAccommodationPhotos";
-import { BookingForm } from "../components/Accommodation/BookingForm";
-import { AccommodationPhotos } from "../components/Accommodation/AccommodationPhotos";
-import { AccommodationTitle } from "../components/Accommodation/AccommodationTitle";
-import { AccommodationDescription } from "../components/Accommodation/AccommodationDescription";
-import { AccommodationExtraInfo } from "../components/Accommodation/AccommodationExtraInfo";
+import { AllAccommodationPhotos } from "../components/SingleAccommodation/AllAccommodationPhotos";
+import { BookingForm } from "../components/SingleAccommodation/BookingForm";
+import { AccommodationPhotos } from "../components/SingleAccommodation/AccommodationPhotos";
+import { AccommodationTitle } from "../components/SingleAccommodation/AccommodationTitle";
+import { AccommodationDescription } from "../components/SingleAccommodation/AccommodationDescription";
+import { AccommodationExtraInfo } from "../components/SingleAccommodation/AccommodationExtraInfo";
 import { Toaster } from "react-hot-toast";
 import { Loading } from "../components/Loading";
 
 export const AccommodationContext = createContext();
 
-export const Accommodation = () => {
+export const SingleAccommodation = () => {
   const { id } = useParams();
   const [seeAllPhotos, setSeeAllPhotos] = useState(false);
 

@@ -11,7 +11,9 @@ import { Profile } from "./components/Profile";
 import { Bookings } from "./components/Bookings";
 import { Accommodations } from "./components/UserAccommodation/Accommodations";
 import { AccommodationForm } from "./components/UserAccommodation/AccommodationForm";
-import { Accommodation } from "./pages/Accommodation";
+import { SingleAccommodation } from "./pages/SingleAccommodation";
+import { SearchResults } from "./components/SearchResults";
+import {Error} from "./pages/Error"
 
 axios.defaults.baseURL = "http://localhost:4000";
 axios.defaults.withCredentials = true;
@@ -29,10 +31,12 @@ function App() {
               <Route path="accommodations/new" element={<AccommodationForm />} />
               <Route path="accommodations/:id" element={<AccommodationForm />} />
             </Route>
-            <Route path="/accommodation/:id" element={<Accommodation/>}/>
+            <Route path="/accommodation/:id" element={<SingleAccommodation/>}/>
+            <Route path="search/:searchQuery" element={<SearchResults/>}/>
           </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="*" element={<Error/>}/>
         </Routes>
       </BrowserRouter>
     </UserContextProvider>
