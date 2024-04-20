@@ -13,6 +13,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 export const AccommodationForm = () => {
   const [perks, setPerks] = useState([]);
   const [addedPhotos, setAddedPhotos] = useState([]);
+  const [photosError,setPhotosError] = useState(false);
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -90,6 +91,10 @@ export const AccommodationForm = () => {
   });
 
   const addOrEditAccommodation = async (data) => {
+    if(addedPhotos.length < 3){
+      setPhotosError(true);
+      return;
+    }
     const accommodationData = {
       title: data.title,
       address: data.address,
@@ -103,6 +108,7 @@ export const AccommodationForm = () => {
       price: data.price,
     };
 
+    setPhotosError(false);
     id
       ? await axios.put("/user-accommodations", { ...accommodationData, id })
       : await axios.post("/user-accommodations", accommodationData);
@@ -140,6 +146,7 @@ export const AccommodationForm = () => {
 
         <h2 className="accommodation-form-h2">Photos*</h2>
         <p className="sub-label">more = better (Atleast 3)</p>
+        {photosError && <p className="form-error">Upload Atleast 3 photos</p>}
         <UploadPhotos
           addedPhotos={addedPhotos}
           setAddedPhotos={setAddedPhotos}

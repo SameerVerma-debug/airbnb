@@ -6,7 +6,7 @@ import { UserAccommodations } from "./UserAccommodations";
 import { Loading } from "../Loading";
 export const Accommodations = () => {
 
-  const [accommodations,loading,setAccommodations] = useFetch({path:"/user-accommodations",dependencies:[]});
+  const [accommodations,loading] = useFetch({path:"/user-accommodations",dependencies:[]});
   
   if(loading){
     return <Loading/>

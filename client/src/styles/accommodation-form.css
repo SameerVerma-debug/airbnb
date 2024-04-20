@@ -80,7 +80,7 @@
 .form-photos-container{
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+  grid-template-columns: repeat(auto-fill,minmax(100px,150px));
   gap:0.7rem;
 }
 
@@ -109,6 +109,7 @@
 .form-photo{
   width:100%;
   height: 100%;
+  aspect-ratio: 1;
   border-radius: 0.4rem;
   object-fit: cover;
 }
