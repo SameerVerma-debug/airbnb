@@ -18,7 +18,7 @@ export const UploadPhotos = ({ addedPhotos, setAddedPhotos }) => {
     } catch (err) {
       toast.error("Image Not uploaded",{duration:1500});
     } finally {
-      photoLinkRef.current?.value = "";
+      photoLinkRef.current.value = "";
     }
   };
 
