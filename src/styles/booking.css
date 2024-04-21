@@ -25,15 +25,9 @@
   padding-right:1rem;
 }
 
-
-.user-booking-photo-container > img{
+.user-booking-photo-container img{
   width:230px;
-  height: 100%;
-  object-fit: cover;
-}
-
-.user-booking-photo{
-  width:200px;
+  height:200px;
   object-fit: cover;
 }
 
