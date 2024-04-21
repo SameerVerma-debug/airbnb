@@ -12,7 +12,9 @@ export const Profile = () => {
   const handleLogout = async () => {
     try{
       await axios.post('/logout');
+      console.log(localStorage.getItem('token'))
       localStorage.removeItem('token');
+      console.log(localStorage.getItem('token'))
       setUser(null);
       setUserFetched(true);
       alert("Logout Successful")

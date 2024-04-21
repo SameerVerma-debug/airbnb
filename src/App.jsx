@@ -19,6 +19,7 @@ import { UserAccommodationPage } from "./components/UserAccommodation/UserAccomm
 axios.defaults.baseURL = API_URL;
 axios.defaults.headers['authorization'] = localStorage.getItem('token');
 axios.defaults.withCredentials = true;
+
 function App() {
   console.log(localStorage.getItem('token'))
   return (

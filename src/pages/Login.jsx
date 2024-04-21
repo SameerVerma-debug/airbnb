@@ -39,6 +39,7 @@ export const Login = () => {
         email: data.email,
         password: data.password,
       });
+      console.log(res.data?.token);
       localStorage.setItem('token',res.data?.token);
       setUser(res.data?.foundUser);
       setUserFetched(true);
