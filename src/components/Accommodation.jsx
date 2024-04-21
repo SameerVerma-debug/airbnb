@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import { API_URL } from "../../public/API_URL";
-import { AccommodationPhoto } from "./AccommodationPhoto";
+import { AdvanceImage } from "./AdvanceImage";
 
 export const Accommodation = ({accommodation}) => {
   return (
@@ -9,8 +8,9 @@ export const Accommodation = ({accommodation}) => {
       className="home-accommodation"
     >
       <div className="home-accommodation-image-container">
-      <AccommodationPhoto photo={accommodation?.photos[0]}/>
+        <AdvanceImage photo={accommodation?.photos[0]}/>
       </div>
+      
       <p className="home-accommodation-address">{accommodation?.address}</p>
       <p className="home-accommodation-title">{accommodation?.title}</p>
       <p className="home-accommodation-price">

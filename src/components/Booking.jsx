@@ -3,16 +3,16 @@ import { BsCreditCardFill } from "react-icons/bs";
 import { MdOutlineNightsStay } from "react-icons/md";
 import { BookingDates } from "./BookingDates";
 import { API_URL } from "../../public/API_URL";
+import { AdvanceImage } from "./AdvanceImage";
 
 export const Booking = ({ booking, confirmCancel }) => {
   return (
     booking && (
       <div className="user-booking" key={booking._id}>
         {booking?.accommodation?.photos?.length > 0 && (
-          <img
-            className="user-booking-photo"
-            src={`${API_URL}/uploads/${booking.accommodation.photos[0]}`}
-          />
+          <div className="user-booking-photo-container">
+          <AdvanceImage photo={booking.accommodation.photos[0]}/>
+          </div>
         )}
         <div className="user-booking-info">
           <p className="user-booking-title">{booking.accommodation.title}</p>

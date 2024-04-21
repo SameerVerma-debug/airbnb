@@ -25,6 +25,13 @@
   padding-right:1rem;
 }
 
+
+.user-booking-photo-container > img{
+  width:230px;
+  height: 100%;
+  object-fit: cover;
+}
+
 .user-booking-photo{
   width:200px;
   object-fit: cover;
@@ -140,7 +147,7 @@
     flex-direction: column;
   }
 
-  .user-booking-photo{
+  .user-booking-photo-container > img{
     width: 100%;
     aspect-ratio: 16/7;
   }

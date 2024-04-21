@@ -43,9 +43,6 @@ export const Login = () => {
       localStorage.setItem('token',res.data.token);
       setUser(res.data.foundUser);
       setUserFetched(true);
-      toast.success("Login Successful Redirecting to Home Page",{
-        duration:1000
-      })
       navigate("/")
     } catch (err) {
       toast.error("Email or password is not correct",{

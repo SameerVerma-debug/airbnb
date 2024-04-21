@@ -1,7 +1,7 @@
 import { FaTrash } from "react-icons/fa";
 import { FaRegStar } from "react-icons/fa6";
 import { FaStar } from "react-icons/fa";
-import { FormPhoto } from "../FormPhoto";
+import { AdvanceImage } from "../AdvanceImage";
 
 export const AddedPhotos = ({ addedPhotos,setAddedPhotos }) => {
   const handleDeletePhoto = (deletedLink) => {
@@ -26,7 +26,7 @@ export const AddedPhotos = ({ addedPhotos,setAddedPhotos }) => {
         addedPhotos.map((link,index) => {
           return (
             <div key={link} className="form-photo-container">
-              <FormPhoto className="form-photo" photo={link}/>
+              <AdvanceImage photo={link}/>
               <button type="button" className="delete-photo" onClick={() => handleDeletePhoto(link)}>
                 <FaTrash />
               </button>

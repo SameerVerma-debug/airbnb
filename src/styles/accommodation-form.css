@@ -80,12 +80,20 @@
 .form-photos-container{
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(150px,150px));
+  grid-template-columns: repeat(auto-fill,minmax(150px,1fr));
   gap:0.7rem;
 }
 
 .form-photo-container{
   position: relative;
+}
+
+.form-photo-container img{
+  width:100%;
+  height: 100%;
+  aspect-ratio: 1;
+  border-radius: 0.4rem;
+  object-fit: cover;
 }
 
 .delete-photo,
@@ -104,14 +112,6 @@
 .main-photo{
   left:0.4rem;
   right:auto;
-}
-
-.form-photo{
-  width:100%;
-  height: 100%;
-  aspect-ratio: 1;
-  border-radius: 0.4rem;
-  object-fit: cover;
 }
 
 .accommodation-form-h2{

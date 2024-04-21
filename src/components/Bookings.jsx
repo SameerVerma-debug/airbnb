@@ -4,7 +4,6 @@ import { useRef, useState } from "react";
 import { Booking } from "./Booking";
 import { BookingDates } from "./BookingDates";
 import axios from "axios";
-import {Toaster,toast} from "react-hot-toast"
 import { NoBookings } from "./NoBookings";
 import { Loading } from "./Loading";
 
@@ -39,9 +38,7 @@ export const Bookings = () => {
       setUserBookings(newUserBookings);
     }
     catch(err){
-      toast.error("Booking not cancelled",{
-        duration:2000
-      });
+
     }
     finally{
       cancelBookingModalRef.current.close();
@@ -54,7 +51,6 @@ export const Bookings = () => {
 
   return userBookings?.length > 0 ? 
     <div className="user-bookings-container">
-      <Toaster/>
       <dialog className="cancel-booking-modal" ref={cancelBookingModalRef}>
         <h2>Cancel Booking?</h2>
         <p className="cancel-booking-title">{bookingToCancel?.title}</p>

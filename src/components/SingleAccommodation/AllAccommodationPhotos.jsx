@@ -1,6 +1,5 @@
 import { IoMdClose } from "react-icons/io";
-import { API_URL } from "../../../public/API_URL";
-import { AccommodationPhoto } from "../AccommodationPhoto";
+import { AdvanceImage } from "../AdvanceImage";
 
 export const AllAccommodationPhotos = ({data,setDataVisibility}) => {
   return (
@@ -19,8 +18,8 @@ export const AllAccommodationPhotos = ({data,setDataVisibility}) => {
           {data?.photos &&
             data.photos.map((photo) => {
               return (
-                <div key={photo}>
-                  <AccommodationPhoto photo={photo}/>
+                <div className="all-photos-photo-container" key={photo}>
+                  <AdvanceImage photo={photo}/>
                 </div>
               );
             })}

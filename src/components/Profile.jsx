@@ -3,7 +3,6 @@ import { UserContext } from "../context/userContext"
 import "../styles/profile.css"
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Toaster,toast } from "react-hot-toast";
 
 export const Profile = () => {
   const {user,setUser,setUserFetched} = useContext(UserContext);
@@ -15,15 +14,9 @@ export const Profile = () => {
       localStorage.removeItem('token');
       setUser(null);
       setUserFetched(true);
-      toast.success("Logout Successful",{
-        duration:1000
-      })
       navigate('/');
     }catch(err){
-      console.log(err);
-      toast.error("Logout Unsuccessful",{
-        duration:1000
-      });
+
     }
   }
 

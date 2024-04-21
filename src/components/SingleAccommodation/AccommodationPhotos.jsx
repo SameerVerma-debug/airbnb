@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { BsFillGridFill } from "react-icons/bs";
 import { AccommodationContext } from "../../pages/SingleAccommodation";
-import { API_URL } from "../../../public/API_URL";
+import { AdvanceImage } from "../AdvanceImage";
 
 export const AccommodationPhotos = () => {
   const { accommodation, setSeeAllPhotos } = useContext(AccommodationContext);
@@ -12,10 +12,7 @@ export const AccommodationPhotos = () => {
           className="accommodation-photo-container"
           onClick={() => setSeeAllPhotos(true)}
         >
-          <img
-            src={`${API_URL}/uploads/${accommodation.photos[0]}`}
-            className="accommodation-photo index-photo"
-          />
+          <AdvanceImage photo={accommodation.photos[0]}/>
         </div>
       )}
 
@@ -25,10 +22,7 @@ export const AccommodationPhotos = () => {
             className="accommodation-photo-container"
             onClick={() => setSeeAllPhotos(true)}
           >
-            <img
-              src={`${API_URL}/uploads/${accommodation.photos[1]}`}
-              className="accommodation-photo hide-on-tablet"
-            />
+            <AdvanceImage photo={accommodation.photos[1]}/>
           </div>
         )}
         {accommodation?.photos[2] && (
@@ -36,10 +30,7 @@ export const AccommodationPhotos = () => {
             className="accommodation-photo-container last-photo-container"
             onClick={() => setSeeAllPhotos(true)}
           >
-            <img
-              src={`${API_URL}/uploads/${accommodation.photos[2]}`}
-              className="accommodation-photo last-photo hide-on-tablet"
-            />
+            <AdvanceImage photo={accommodation.photos[2]}/>
           </div>
         )}
       </div>

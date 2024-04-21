@@ -31,7 +31,9 @@
 .user-accommodation-image-container{
   overflow: hidden;
 }
-.user-accommodation-image{
+
+.user-accommodation-image-container  > img{
+  height: 100%;
   width: 100%;
   object-fit: cover;
   aspect-ratio: 16/9;
@@ -39,7 +41,7 @@
   transition: all 0.2s;
 }
 
-.user-accommodation-image:hover{
+.user-accommodation-image-container > img:hover{
   transform: scale(1.05);
 }
 
@@ -52,6 +54,7 @@
 
 .user-accommodation-image-title-address{
   flex:1;
+  width: 100%;
 }
 
 .edit-user-accommodation{
