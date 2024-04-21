@@ -11,7 +11,7 @@ import { Search } from "./Search";
 export const Header = () => {
   const { user } = useContext(UserContext);
 
-  !user && useFetchUser({ path: "/profile", dependencies: [] });
+  useFetchUser({ path: "/profile", dependencies: [] });
 
   return (
     <div className="header">
