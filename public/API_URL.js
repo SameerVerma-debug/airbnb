@@ -1,1 +1,1 @@
-export const API_URL = "https://airbnb-backend-kappa.vercel.app";
+export const API_URL = "https://airbnb-backend-5.onrender.com";
