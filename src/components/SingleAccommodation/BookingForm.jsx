@@ -31,7 +31,7 @@ export const BookingForm = () => {
   };
 
   const validateBookingGuests = (noOfGuests, maxGuests) => {
-    if (!noOfGuests || maxGuests < noOfGuests) {
+    if (!noOfGuests || Number(maxGuests) < Number(noOfGuests)) {
       return false;
     }
     return true;
