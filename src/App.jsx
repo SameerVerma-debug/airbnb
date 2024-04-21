@@ -17,8 +17,10 @@ import { API_URL } from "../public/API_URL";
 import { UserAccommodationPage } from "./components/UserAccommodation/UserAccommodationPage";
 
 axios.defaults.baseURL = API_URL;
+axios.defaults.headers['authorization'] = localStorage.getItem('token');
 axios.defaults.withCredentials = true;
 function App() {
+  console.log(localStorage.getItem('token'))
   return (
     <UserContextProvider>
       <BrowserRouter>

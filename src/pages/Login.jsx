@@ -39,7 +39,8 @@ export const Login = () => {
         email: data.email,
         password: data.password,
       });
-      setUser(res.data);
+      localStorage.setItem('token',res.data?.token);
+      setUser(res.data?.foundUser);
       setUserFetched(true);
       alert("Login Successful Redirecting to Home Page")
       navigate("/")
