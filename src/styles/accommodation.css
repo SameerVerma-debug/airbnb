@@ -231,6 +231,10 @@
   .accommodation-photos-container{
     grid-template-columns: auto;
   }
+
+  .accommodation-photos-container2{
+    display: none;
+  }
 }
 
 @media screen and (max-width:600px){
