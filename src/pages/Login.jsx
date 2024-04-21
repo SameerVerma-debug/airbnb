@@ -8,6 +8,7 @@ import { UserContext } from "../context/userContext";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import {Toaster,toast} from "react-hot-toast"
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -39,19 +40,23 @@ export const Login = () => {
         email: data.email,
         password: data.password,
       });
-      console.log(res.data.token);
       localStorage.setItem('token',res.data.token);
       setUser(res.data.foundUser);
       setUserFetched(true);
-      alert("Login Successful Redirecting to Home Page")
+      toast.success("Login Successful Redirecting to Home Page",{
+        duration:1000
+      })
       navigate("/")
     } catch (err) {
-      alert("Email or password is not correct")
+      toast.error("Email or password is not correct",{
+        duration:1000
+      })
     }
   };
 
   return (
     <div className="form-container">
+      <Toaster/>
       <p className="form-heading">Login</p>
       <form onSubmit={handleSubmit(handleLogin)} className="auth-form">
         <div>

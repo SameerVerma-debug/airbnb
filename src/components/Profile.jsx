@@ -3,6 +3,7 @@ import { UserContext } from "../context/userContext"
 import "../styles/profile.css"
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Toaster,toast } from "react-hot-toast";
 
 export const Profile = () => {
   const {user,setUser,setUserFetched} = useContext(UserContext);
@@ -11,16 +12,18 @@ export const Profile = () => {
   const handleLogout = async () => {
     try{
       await axios.post('/logout');
-      console.log(localStorage.getItem('token'))
       localStorage.removeItem('token');
-      console.log(localStorage.getItem('token'))
       setUser(null);
       setUserFetched(true);
-      alert("Logout Successful")
+      toast.success("Logout Successful",{
+        duration:1000
+      })
       navigate('/');
     }catch(err){
       console.log(err);
-      alert("Logout Unsuccessful");
+      toast.error("Logout Unsuccessful",{
+        duration:1000
+      });
     }
   }
 

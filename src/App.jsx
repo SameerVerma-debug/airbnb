@@ -21,7 +21,6 @@ axios.defaults.headers['authorization'] = localStorage.getItem('token');
 axios.defaults.withCredentials = true;
 
 function App() {
-  console.log(localStorage.getItem('token'))
   return (
     <UserContextProvider>
       <BrowserRouter>
