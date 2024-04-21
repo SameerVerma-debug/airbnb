@@ -1,7 +1,7 @@
 import { FaTrash } from "react-icons/fa";
 import { FaRegStar } from "react-icons/fa6";
 import { FaStar } from "react-icons/fa";
-import { API_URL } from "../../../public/API_URL";
+import { FormPhoto } from "../FormPhoto";
 
 export const AddedPhotos = ({ addedPhotos,setAddedPhotos }) => {
   const handleDeletePhoto = (deletedLink) => {
@@ -26,10 +26,7 @@ export const AddedPhotos = ({ addedPhotos,setAddedPhotos }) => {
         addedPhotos.map((link,index) => {
           return (
             <div key={link} className="form-photo-container">
-              <img
-                className="form-photo"
-                src={`${API_URL}/uploads/${link}`}
-              />
+              <FormPhoto className="form-photo" photo={link}/>
               <button type="button" className="delete-photo" onClick={() => handleDeletePhoto(link)}>
                 <FaTrash />
               </button>

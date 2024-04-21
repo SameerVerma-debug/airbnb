@@ -1,11 +1,11 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import axios from "axios";
 import { IoCloudUploadOutline } from "react-icons/io5";
 import { AddedPhotos } from "./AddedPhotos";
 import { toast } from "react-hot-toast";
 export const UploadPhotos = ({ addedPhotos, setAddedPhotos }) => {
   const photoLinkRef = useRef(null);
-
+  const [photo,setPhoto] = useState("");
   const addPhotoByLink = async () => {
     let res;
     try {
@@ -22,23 +22,31 @@ export const UploadPhotos = ({ addedPhotos, setAddedPhotos }) => {
     }
   };
 
-  const uploadPhoto = async (e) => {
-    const files = e.target.files;
-    const data = new FormData();
-    for (let i = 0; i < files.length; i++) {
-      data.append("photos", files[i]);
+  const previewFile = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+
+    reader.onloadend = () => {
+      setPhoto(reader.result);
     }
-    try {
-      const res = await axios.post("/upload", data, {
-        headers: { "Content-Type": "multipart/form-data" },
+  }
+
+  const uploadPhoto = async (e) => {
+    console.log(e.target.files[0]);
+    const file = e.target.files[0];
+    previewFile(file);
+    try{
+      const res = await axios.post("/upload",{
+        photo:photo
       });
-      setAddedPhotos((prev) => {
-        return [...prev, ...res.data];
-      });
-    } catch (err) {
-      toast.error("Image Not uploaded",{duration:1500});
+      console.log(res.data);
+      setAddedPhotos([...addedPhotos,res.data]);
+    }
+    catch(err){
+      console.log(err);
     }
   };
+
   return (
     <>
       <div className="add-with-link">
@@ -58,10 +66,10 @@ export const UploadPhotos = ({ addedPhotos, setAddedPhotos }) => {
       <div className="uploadbutton-photos">
         <label className="upload-photo">
           <input
-            onChange={uploadPhoto}
+            onChange={(e) => uploadPhoto(e)}
             type="file"
-            multiple
             className="hidden"
+            accept="image/png, image/jpeg, image/jpg, image/jfif, image/webp"
           />
           <IoCloudUploadOutline />
           Upload

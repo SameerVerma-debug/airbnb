@@ -80,7 +80,7 @@
 .form-photos-container{
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(100px,150px));
+  grid-template-columns: repeat(auto-fill,minmax(150px,150px));
   gap:0.7rem;
 }
 
@@ -148,8 +148,5 @@ input[type="checkbox"]{
   }
   .add-photo-with-link{
     width:50vw;
-  }
-  .form-photos-container{
-    grid-template-columns: repeat(auto-fit,minmax(120px,1fr));
   }
 }

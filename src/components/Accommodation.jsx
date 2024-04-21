@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { API_URL } from "../../public/API_URL";
+import { AccommodationPhoto } from "./AccommodationPhoto";
 
 export const Accommodation = ({accommodation}) => {
   return (
@@ -8,10 +9,7 @@ export const Accommodation = ({accommodation}) => {
       className="home-accommodation"
     >
       <div className="home-accommodation-image-container">
-        <img
-          className="home-accommodation-image"
-          src={`${API_URL}/uploads/${accommodation?.photos[0]}`}
-        />
+      <AccommodationPhoto photo={accommodation?.photos[0]}/>
       </div>
       <p className="home-accommodation-address">{accommodation?.address}</p>
       <p className="home-accommodation-title">{accommodation?.title}</p>

@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@cloudinary/react": "^1.13.0",
+    "@cloudinary/url-gen": "^1.19.0",
     "@hookform/resolvers": "^3.3.4",
     "axios": "^1.6.8",
     "date-fns": "^3.6.0",

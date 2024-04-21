@@ -1,5 +1,6 @@
 import { IoMdClose } from "react-icons/io";
 import { API_URL } from "../../../public/API_URL";
+import { AccommodationPhoto } from "../AccommodationPhoto";
 
 export const AllAccommodationPhotos = ({data,setDataVisibility}) => {
   return (
@@ -19,10 +20,7 @@ export const AllAccommodationPhotos = ({data,setDataVisibility}) => {
             data.photos.map((photo) => {
               return (
                 <div key={photo}>
-                  <img
-                    className="all-photos-photo"
-                    src={`${API_URL}/uploads/${photo}`}
-                  />
+                  <AccommodationPhoto photo={photo}/>
                 </div>
               );
             })}
