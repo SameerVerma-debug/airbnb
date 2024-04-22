@@ -22,8 +22,9 @@ export const BookingForm = () => {
   const validateBookingDates = (checkInDate, checkOutDate) => {
     const currDate = new Date();
     if (
-      differenceInCalendarDays(checkOutDate, checkInDate) <= 0 ||
-      differenceInCalendarDays(checkInDate, currDate) < 0
+      !checkInDate || !checkOutDate ||
+      differenceInCalendarDays(newDate(checkOutDate), newDate(checkInDate)) <= 0 ||
+      differenceInCalendarDays(newDate(checkInDate), currDate) < 0
     ) {
       return false;
     }
@@ -31,7 +32,7 @@ export const BookingForm = () => {
   };
 
   const validateBookingGuests = (noOfGuests, maxGuests) => {
-    if (!noOfGuests || Number(noOfGuests) == 0 || Number(maxGuests) < Number(noOfGuests)) {
+    if (!noOfGuests || Number(noOfGuests) <= 0 || Number(maxGuests) < Number(noOfGuests)) {
       return false;
     }
     return true;
@@ -76,8 +77,8 @@ export const BookingForm = () => {
   };
 
   const handleBookAccommodation = async () => {
-    const checkInDate = new Date(checkInDateRef.current.value);
-    const checkOutDate = new Date(checkOutDateRef.current.value);
+    const checkInDate = checkInDateRef.current.value;
+    const checkOutDate = checkOutDateRef.current.value;
     const noOfGuests = guestsRef.current.value;
 
     if(!user){
@@ -160,7 +161,7 @@ export const BookingForm = () => {
               <input ref={guestsRef} type="number" min="1" defaultValue="1" />
               {bookingErrors.guest && (
                 <p className="form-error">
-                  {`Max Guests: ${accommodation.guestsInfo}`}
+                  {`Number should be positive (OR Max Guests: ${accommodation.guestsInfo})`}
                 </p>
               )}
             </div>
