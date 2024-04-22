@@ -22,9 +22,9 @@ export const BookingForm = () => {
   const validateBookingDates = (checkInDate, checkOutDate) => {
     const currDate = new Date();
     if (
-      !checkInDate || !checkOutDate ||
-      differenceInCalendarDays(newDate(checkOutDate), newDate(checkInDate)) <= 0 ||
-      differenceInCalendarDays(newDate(checkInDate), currDate) < 0
+      differenceInCalendarDays(new Date(checkOutDate), new Date(checkInDate)) <= 0 ||
+      differenceInCalendarDays(new Date(checkInDate), currDate) < 0 ||
+      !checkInDate || !checkOutDate
     ) {
       return false;
     }
