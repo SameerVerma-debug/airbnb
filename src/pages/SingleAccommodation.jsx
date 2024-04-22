@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 import "../styles/accommodation.css";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { AllAccommodationPhotos } from "../components/SingleAccommodation/AllAccommodationPhotos";
 import { BookingForm } from "../components/SingleAccommodation/BookingForm";
 import { AccommodationPhotos } from "../components/SingleAccommodation/AccommodationPhotos";
@@ -21,6 +21,15 @@ export const SingleAccommodation = () => {
     path: `/accommodations/${id}`,
     dependencies: [id],
   });
+
+  useEffect(() => {
+    window.scrollTo({
+      x:0,
+      y:0,
+      behavior:"smooth"
+    })
+  },[])
+
 
   if (seeAllPhotos) {
     return (
