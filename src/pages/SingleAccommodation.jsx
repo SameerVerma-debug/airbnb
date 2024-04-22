@@ -24,10 +24,10 @@ export const SingleAccommodation = () => {
 
   useEffect(() => {
     window.scrollTo({
-      x:0,
-      y:0,
-      behavior:"smooth"
-    })
+      top: 0,
+      left: 0,
+      behavior: "smooth"
+    });
   },[])
 
 
